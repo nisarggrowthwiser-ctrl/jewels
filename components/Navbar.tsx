@@ -36,7 +36,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-background/97 backdrop-blur-sm border-b border-border/50 py-4 shadow-[0_1px_12px_rgba(0,0,0,0.06)]"
+            ? "bg-background/97 backdrop-blur-sm border-b border-border/50 py-4 shadow-[0_2px_24px_rgba(194,162,97,0.07),0_1px_0_rgba(194,162,97,0.08)]"
             : "bg-transparent border-b border-white/10 py-6"
         }`}
       >
@@ -84,11 +84,12 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
+                  {/* Animated underline */}
                   <span
-                    className={`absolute -bottom-1.5 left-0 w-full h-[1px] transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 ${
-                      isScrolled ? "bg-gold-accent" : "bg-white"
+                    className={`absolute -bottom-1.5 left-0 w-full h-[1.5px] transform origin-left transition-transform duration-300 ease-out ${
+                      isScrolled ? "bg-gold-accent" : "bg-white/80"
                     } ${
-                      isActive ? "scale-x-100" : ""
+                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
                 </Link>

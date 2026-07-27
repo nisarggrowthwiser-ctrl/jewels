@@ -93,7 +93,11 @@ export default function Home() {
           />
         </motion.div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/85 via-[#071711]/20 to-[#071711]/30 z-10" />
+        {/* Richer gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 via-[#071711]/20 to-[#071711]/35 z-10" />
+        {/* Side vignettes */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#071711]/40 to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#071711]/40 to-transparent z-10" />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -101,6 +105,12 @@ export default function Home() {
           transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
           className="absolute bottom-8 sm:bottom-16 left-4 sm:left-6 md:left-16 lg:left-24 z-20 max-w-[calc(100%-2rem)] sm:max-w-3xl pr-4"
         >
+          {/* Gold ornamental line */}
+          <div className="flex items-center gap-3 mb-4 sm:mb-5">
+            <div className="w-4 h-[1px] bg-gold-accent/60" />
+            <span className="w-1 h-1 bg-gold-accent/60 rotate-45 block" />
+            <div className="w-4 h-[1px] bg-gold-accent/60" />
+          </div>
           <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-3 sm:mb-4">
             Vernaura Jewels
           </span>
@@ -208,26 +218,34 @@ export default function Home() {
                 <AnimatedSection key={tile.title} delay={idx * 0.07}>
                   <Link href={tile.href} className="group block relative overflow-hidden bg-[#071711]">
                     <div className="relative aspect-[4/5] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/85 via-[#071711]/20 to-transparent z-10 opacity-85 group-hover:opacity-95 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 via-[#071711]/25 to-transparent z-10 opacity-85 group-hover:opacity-100 transition-opacity duration-500" />
 
                       <Image
                         src={tile.image}
                         alt={tile.title}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                        className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
                       />
 
-                      <div className="absolute bottom-6 left-6 right-6 z-20 transform group-hover:-translate-y-1 transition-transform duration-500 ease-out">
-                        <span className="block font-sans text-[9px] uppercase tracking-[0.3em] text-white/70 mb-1">
+                      {/* Gold bottom reveal bar */}
+                      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-accent to-transparent z-30 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+                      <div className="absolute bottom-6 left-6 right-6 z-20 transform group-hover:-translate-y-2 transition-transform duration-500 ease-out">
+                        <span className="block font-sans text-[9px] uppercase tracking-[0.3em] text-white/60 mb-1">
                           {tile.subtitle}
                         </span>
-                        <h3 className="font-serif text-lg md:text-xl text-white font-light leading-snug mb-1">
+                        <h3 className="font-serif text-lg md:text-xl text-white font-light leading-snug mb-1.5">
                           {tile.title}
                         </h3>
-                        <p className="font-sans text-[11px] text-white/60 leading-relaxed font-light line-clamp-2">
+                        <p className="font-sans text-[11px] text-white/55 leading-relaxed font-light line-clamp-2">
                           {tile.desc}
                         </p>
+                        {/* Explore arrow — appears on hover */}
+                        <div className="flex items-center gap-1.5 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="font-sans text-[9px] uppercase tracking-[0.25em] text-gold-accent">Explore</span>
+                          <span className="text-gold-accent text-xs">→</span>
+                        </div>
                       </div>
                     </div>
                   </Link>
@@ -256,9 +274,13 @@ export default function Home() {
                 <AnimatedSection
                   key={feat.title}
                   delay={idx * 0.07}
-                  className="border-t border-border/80 pt-6 space-y-3"
+                  className="border-t border-border/80 pt-6 space-y-3 relative"
                 >
-                  <span className="font-serif text-2xl text-text-muted/60 font-light select-none block">
+                  {/* Large watermark number */}
+                  <span className="absolute -top-2 right-0 font-serif text-[64px] leading-none text-text-primary/[0.04] select-none pointer-events-none font-light">
+                    0{idx + 1}
+                  </span>
+                  <span className="font-serif text-xl text-gold-accent/50 font-light select-none block">
                     0{idx + 1}
                   </span>
                   <h3 className="font-serif text-lg md:text-xl font-light text-text-primary leading-snug">
@@ -307,7 +329,7 @@ export default function Home() {
                 },
                 {
                   title: "Authenticity",
-                  desc: "Whether natural diamonds, lab-grown diamonds, precious metals, or gemstones, we are committed to transparency and integrity in every piece we offer.",
+                  desc: "Whether natural diamonds, lab-grown diamonds, precious metals, or gemstones, we are committed to transparency and integrity.",
                   image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=600&auto=format&fit=crop"
                 },
                 {
@@ -317,29 +339,31 @@ export default function Home() {
                 },
                 {
                   title: "Timelessness",
-                  desc: "Trends may evolve, but true elegance endures. We create jewellery designed to remain relevant, beautiful, and meaningful across generations.",
+                  desc: "Trends may evolve, but true elegance endures. We create jewellery designed to remain relevant across generations.",
                   image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=600&auto=format&fit=crop"
                 },
               ].map((pillar, idx) => (
                 <AnimatedSection
                   key={pillar.title}
                   delay={idx * 0.08}
-                  className="space-y-4"
+                  className="space-y-4 group"
                 >
-                  {/* Image container */}
+                  {/* Image with gold top border reveal on hover */}
                   <div className="relative aspect-[4/5] overflow-hidden bg-surface">
+                    {/* Gold top border */}
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-accent to-transparent z-20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                     <Image
                       src={pillar.image}
                       alt={pillar.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-[1200ms] ease-out hover:scale-105"
+                      className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.05]"
                     />
                   </div>
 
-                  {/* Text Content */}
-                  <div className="space-y-2">
-                    <h3 className="font-serif text-lg text-text-primary font-light">
+                  {/* Text */}
+                  <div className="space-y-2 px-0.5">
+                    <h3 className="font-serif text-lg text-text-primary group-hover:text-gold-accent font-light transition-colors duration-300">
                       {pillar.title}
                     </h3>
                     <p className="font-sans text-xs text-text-muted leading-relaxed">
@@ -413,7 +437,9 @@ export default function Home() {
               className="object-cover opacity-40"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/40 to-transparent z-10" />
+          {/* Ambient gold glow at bottom */}
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[200px] bg-gold-accent/[0.06] blur-[80px] pointer-events-none z-10" />
 
           <AnimatedSection className="relative z-20 px-6 md:px-16 lg:px-24 max-w-7xl w-full space-y-5">
             <span className="block font-sans text-[10px] uppercase tracking-[0.4em] text-white/50">
@@ -443,12 +469,21 @@ export default function Home() {
         {/* ─── 7. FINAL BRAND STATEMENT ─── */}
         <section className="py-28 md:py-40 px-6 md:px-16 lg:px-24 max-w-4xl mx-auto text-center">
           <AnimatedSection className="space-y-8">
-            <div className="flex justify-center">
+            {/* Ornamental divider */}
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-12 h-[1px] bg-gold-accent/40" />
               <div className="w-1.5 h-1.5 bg-gold-accent rotate-45" />
+              <div className="w-12 h-[1px] bg-gold-accent/40" />
             </div>
             <p className="font-serif italic text-2xl md:text-3xl text-text-primary font-light leading-relaxed">
               &ldquo;{BRAND_COPY.finalStatement}&rdquo;
             </p>
+            {/* Ornamental divider bottom */}
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-6 h-[1px] bg-gold-accent/30" />
+              <div className="w-1 h-1 bg-gold-accent/30 rotate-45" />
+              <div className="w-6 h-[1px] bg-gold-accent/30" />
+            </div>
             <div>
               <span className="block font-sans text-[9px] uppercase tracking-[0.4em] text-gold-accent mb-1">
                 VERNAURA JEWELS

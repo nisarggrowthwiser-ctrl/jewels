@@ -1,22 +1,53 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
-/* Custom transitions and editorial typography utilities */
+/* ─── PREMIUM DESIGN SYSTEM ─── */
+
 @layer base {
   body {
     background-color: var(--color-background);
     color: var(--color-text-primary);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Subtle grain texture overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.018;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     letter-spacing: -0.01em;
   }
+
+  /* Gold text selection */
+  ::selection {
+    background-color: #C2A261;
+    color: #1a1410;
+  }
+  ::-moz-selection {
+    background-color: #C2A261;
+    color: #1a1410;
+  }
+
+  /* Focus ring */
+  *:focus-visible {
+    outline: 1.5px solid #C2A261;
+    outline-offset: 3px;
+  }
 }
 
-/* Global utility for eyebrow labels */
+/* ─── EYEBROW LABEL ─── */
 .eyebrow {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -24,24 +55,116 @@
   font-family: var(--font-sans);
 }
 
-/* Custom scrollbar and utilities */
+/* ─── CUSTOM SCROLLBAR ─── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-background);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gold-accent);
+  background: linear-gradient(180deg, #C2A261 0%, #a07c3f 100%);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C2A261;
 }
 
-/* Scoped silver sub-brand theme overrides */
+/* ─── ANIMATIONS ─── */
+
+/* Gold shimmer sweep */
+@keyframes goldShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Gentle pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.04); }
+}
+
+/* Marquee scroll */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Shimmer bar reveal */
+@keyframes shimmerReveal {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { transform: translateX(200%); opacity: 0; }
+}
+
+/* Float gentle */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* ─── UTILITY CLASSES ─── */
+
+/* Animated gold shimmer text */
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    #C2A261 0%,
+    #e8cc8a 40%,
+    #C2A261 60%,
+    #a07c3f 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 4s linear infinite;
+}
+
+/* Marquee wrapper */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Gold bottom reveal bar (used on card hovers) */
+.card-gold-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C2A261, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.group:hover .card-gold-bar {
+  transform: scaleX(1);
+}
+
+/* Pulsing ambient glow */
+.glow-gold {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Float animation */
+.float-gentle {
+  animation: floatY 5s ease-in-out infinite;
+}
+
+/* ─── SCOPED SILVER THEME ─── */
 .theme-silver {
-  --color-background: #F1F3F5;          /* Cool ice-grey/silver background */
-  --color-text-primary: #1E293B;        /* Slate-800 cool text */
-  --color-text-muted: #64748B;          /* Slate-500 cool muted text */
-  --color-gold-accent: #788896;         /* Polished silver/steel accent */
-  --color-border: #D1D5DB;              /* Cool border */
+  --color-background: #F1F3F5;
+  --color-text-primary: #1E293B;
+  --color-text-muted: #64748B;
+  --color-gold-accent: #788896;
+  --color-border: #D1D5DB;
 }
 
-
+/* ─── TRANSITION OVERRIDES ─── */
+.transition-duration-400 {
+  transition-duration: 400ms;
+}
