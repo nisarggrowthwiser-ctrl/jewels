@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+/* Custom transitions and editorial typography utilities */
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Global utility for eyebrow labels */
+.eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbar and utilities */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-accent);
+}
+
+/* Scoped silver sub-brand theme overrides */
+.theme-silver {
+  --color-background: #F1F3F5;          /* Cool ice-grey/silver background */
+  --color-text-primary: #1E293B;        /* Slate-800 cool text */
+  --color-text-muted: #64748B;          /* Slate-500 cool muted text */
+  --color-gold-accent: #788896;         /* Polished silver/steel accent */
+  --color-border: #D1D5DB;              /* Cool border */
+}
+
+
