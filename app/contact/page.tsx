@@ -23,7 +23,7 @@ export default function ContactPage() {
       <Navbar />
 
       {/* ─── 1. HERO — Full-bleed dark image, bottom-left headline ─── */}
-      <section className="relative h-[70vh] w-full overflow-hidden bg-[#071711]">
+      <section className="relative min-h-[50vh] sm:min-h-[65vh] md:h-[70vh] w-full overflow-hidden bg-[#071711] flex items-end">
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1200&auto=format&fit=crop"
@@ -35,17 +35,17 @@ export default function ContactPage() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 via-[#071711]/30 to-[#071711]/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
 
-        <div className="absolute bottom-8 sm:bottom-16 left-4 sm:left-6 md:left-16 lg:left-24 z-20 max-w-[calc(100%-2rem)] sm:max-w-2xl">
-          <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-3 sm:mb-4">
+        <div className="relative pb-8 sm:pb-16 left-0 px-4 sm:px-8 md:px-16 lg:px-24 z-20 max-w-2xl pt-28">
+          <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
             Bespoke Salon
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-4 sm:mb-6">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-6">
             Contact &<br />
             Consultation
           </h1>
-          <p className="font-sans text-xs sm:text-sm text-white/70 leading-relaxed tracking-wide max-w-md hidden sm:block">
+          <p className="font-sans text-xs sm:text-sm text-white/70 leading-relaxed tracking-wide max-w-md block">
             Our concierge team is dedicated to curating your personal fine jewellery acquisitions. Reach out to schedule a private showroom appointment or send a custom inquiry.
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function ContactPage() {
       <main className="bg-background text-text-primary">
 
         {/* ─── 2. CONTACT SPLIT COLUMNS ─── */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-16 lg:px-24 py-16 sm:py-24 md:py-36 grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-16 items-stretch">
+        <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 py-14 sm:py-24 md:py-36 grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-16 items-stretch">
 
           {/* Details Left */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-12">
@@ -147,7 +147,7 @@ export default function ContactPage() {
         </section>
 
         {/* ─── 3. EMBEDDED MAP SECTION ─── */}
-        <section className="pb-24 md:pb-36 max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
+        <section className="pb-14 sm:pb-24 md:pb-36 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
           <AnimatedSection className="space-y-3 mb-8">
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
               Location Coordinates

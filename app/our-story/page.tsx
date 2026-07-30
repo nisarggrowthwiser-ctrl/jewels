@@ -63,7 +63,7 @@ export default function OurStory() {
       <Navbar />
 
       {/* ─── 1. HERO — Full-bleed dark image, bottom-left headline ─── */}
-      <section className="relative h-[80vh] w-full overflow-hidden bg-[#071711]">
+      <section className="relative min-h-[55vh] sm:min-h-[70vh] md:h-[80vh] w-full overflow-hidden bg-[#071711] flex items-end">
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=1200&auto=format&fit=crop"
@@ -75,17 +75,17 @@ export default function OurStory() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 via-[#071711]/30 to-[#071711]/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
 
-        <div className="absolute bottom-8 sm:bottom-16 left-4 sm:left-6 md:left-16 lg:left-24 z-20 max-w-[calc(100%-2rem)] sm:max-w-2xl">
-          <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-3 sm:mb-4">
+        <div className="relative pb-8 sm:pb-16 left-0 px-4 sm:px-8 md:px-16 lg:px-24 z-20 max-w-2xl pt-28">
+          <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
             Our Story
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-4 sm:mb-6">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-6">
             A Legacy of Beauty,<br />
             Crafted for Generations
           </h1>
-          <p className="font-sans text-sm md:text-lg text-white/80 leading-relaxed font-light max-w-md hidden sm:block">
+          <p className="font-sans text-xs sm:text-sm md:text-lg text-white/80 leading-relaxed font-light max-w-md block">
             &ldquo;Jewellery has always been more than adornment. It is a reflection of milestones, emotions, traditions, and personal journeys.&rdquo;
           </p>
         </div>
@@ -94,8 +94,8 @@ export default function OurStory() {
       <main className="bg-background text-text-primary">
 
         {/* ─── 2. OUR STORY NARRATIVE & WHY VERNAURA WAS CREATED ─── */}
-        <section className="py-24 md:py-36 lg:py-44 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+        <section className="py-14 sm:py-24 md:py-36 lg:py-44 px-4 sm:px-8 md:px-16 lg:px-24 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
             {/* Left text */}
             <div className="lg:col-span-7 space-y-7">
@@ -144,9 +144,9 @@ export default function OurStory() {
         </section>
 
         {/* ─── 3. OUR VISION SECTION ─── */}
-        <section className="py-24 md:py-36 bg-surface border-y border-border/40">
-          <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <section className="py-14 sm:py-24 md:py-36 bg-surface border-y border-border/40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-16 items-center">
               
               <div className="lg:col-span-5 space-y-5">
                 <AnimatedSection className="space-y-5">
@@ -179,8 +179,8 @@ export default function OurStory() {
         </section>
 
         {/* ─── 4. OUR PHILOSOPHY (4 PILLARS) ─── */}
-        <section className="py-24 md:py-36 max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-          <AnimatedSection className="max-w-3xl space-y-4 mb-16">
+        <section className="py-14 sm:py-24 md:py-36 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+          <AnimatedSection className="max-w-3xl space-y-4 mb-12 sm:mb-16">
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
               Our Philosophy
             </span>
@@ -193,7 +193,7 @@ export default function OurStory() {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
             {pillars.map((pillar, idx) => (
               <AnimatedSection
                 key={pillar.title}
@@ -215,9 +215,9 @@ export default function OurStory() {
         </section>
 
         {/* ─── 5. WHAT VERNAURA STANDS FOR (5 VALUES) ─── */}
-        <section className="py-24 md:py-36 bg-surface border-t border-border/40">
-          <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <section className="py-14 sm:py-24 md:py-36 bg-surface border-t border-border/40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div className="lg:col-span-4 space-y-5">
                 <AnimatedSection className="space-y-5">
                   <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
@@ -240,7 +240,7 @@ export default function OurStory() {
                   <AnimatedSection
                     key={val.title}
                     delay={idx * 0.07}
-                    className="flex gap-8 py-8 border-b border-border/60 last:border-b-0"
+                    className="flex gap-5 sm:gap-8 py-6 sm:py-8 border-b border-border/60 last:border-b-0"
                   >
                     <span className="font-serif text-2xl text-gold-accent font-light select-none shrink-0 pt-0.5 w-8">
                       0{idx + 1}
@@ -261,8 +261,8 @@ export default function OurStory() {
         </section>
 
         {/* ─── 6. FOUNDER'S MESSAGE ─── */}
-        <section className="py-24 md:py-36 max-w-5xl mx-auto px-4 sm:px-6 md:px-12">
-          <AnimatedSection className="bg-surface border border-border/50 p-6 sm:p-10 md:p-16 relative space-y-8">
+        <section className="py-14 sm:py-24 md:py-36 max-w-5xl mx-auto px-4 sm:px-6 md:px-12">
+          <AnimatedSection className="bg-surface border border-border/50 p-5 sm:p-10 md:p-16 relative space-y-8">
             <div className="space-y-4">
               <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
                 Founder&apos;s Message
@@ -307,7 +307,7 @@ export default function OurStory() {
         </section>
 
         {/* ─── 7. CLOSING BRAND COMMITMENT ─── */}
-        <section className="pb-28 md:pb-40 max-w-4xl mx-auto px-6 md:px-12 text-center">
+        <section className="pb-20 sm:pb-28 md:pb-40 max-w-4xl mx-auto px-4 sm:px-8 md:px-12 text-center">
           <AnimatedSection className="space-y-8">
             <div className="flex justify-center">
               <div className="w-1.5 h-1.5 bg-gold-accent rotate-45" />

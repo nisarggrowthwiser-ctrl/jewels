@@ -61,7 +61,7 @@ export default function SilverPage() {
       <Navbar />
 
       {/* ─── 1. HERO — Full-bleed dark image, bottom-left headline ─── */}
-      <section className="relative h-[80vh] w-full overflow-hidden bg-[#071711]">
+      <section className="relative min-h-[55vh] sm:min-h-[70vh] md:h-[80vh] w-full overflow-hidden bg-[#071711] flex items-end">
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/images/silver_teaser.png"
@@ -73,26 +73,26 @@ export default function SilverPage() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 via-[#071711]/30 to-[#071711]/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
 
-        <div className="absolute bottom-8 sm:bottom-16 left-4 sm:left-6 md:left-16 lg:left-24 z-20 max-w-[calc(100%-2rem)] sm:max-w-2xl">
-          <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-3 sm:mb-4">
+        <div className="relative pb-8 sm:pb-16 left-0 px-4 sm:px-8 md:px-16 lg:px-24 z-20 max-w-2xl pt-28">
+          <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
             Vernaura Jewels Silver
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-4 sm:mb-6">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-6">
             Structural. Modern.<br />
             Timeless.
           </h1>
-          <p className="font-sans text-xs sm:text-sm text-white/75 leading-relaxed tracking-wide max-w-lg hidden sm:block">
+          <p className="font-sans text-xs sm:text-sm text-white/75 leading-relaxed tracking-wide max-w-lg block">
             Vernaura Jewels Silver presents an exclusive range of sterling silver jewellery, luxury gifts, collectibles, and handcrafted artifacts designed for modern living while honoring traditional artistry.
           </p>
         </div>
       </section>
 
-      <main className="theme-silver bg-background text-text-primary py-24 md:py-36">
+      <main className="theme-silver bg-background text-text-primary py-14 sm:py-24 md:py-36">
 
         {/* ─── 2. CATEGORIES GRID ─── */}
-        <section className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 mb-16">
+        <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 mb-10 sm:mb-16">
           <AnimatedSection className="space-y-3">
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
               The Silver Atelier
@@ -105,7 +105,7 @@ export default function SilverPage() {
         </section>
 
         {/* 3-Column Spaced Grid with Bottom-Left Image Overlay Titles */}
-        <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 mb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 mb-14 sm:mb-24">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {silverCategories.map((cat, idx) => (
               <AnimatedSection key={cat.title} delay={idx * 0.08}>
@@ -137,8 +137,8 @@ export default function SilverPage() {
         </div>
 
         {/* ─── 3. CLOSING CTA ─── */}
-        <section className="max-w-4xl mx-auto px-6 md:px-12 text-center">
-          <AnimatedSection className="bg-surface border border-border/40 p-6 sm:p-10 md:p-14 space-y-6">
+        <section className="max-w-4xl mx-auto px-4 sm:px-8 md:px-12 text-center">
+          <AnimatedSection className="bg-surface border border-border/40 p-5 sm:p-10 md:p-14 space-y-6">
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
               Corporate & Personal Commissions
             </span>

@@ -77,7 +77,7 @@ export default function Home() {
       {/* ─── 1. HERO — Full-bleed dark image, bottom-left official tagline & headline ─── */}
       <section
         ref={heroRef}
-        className="relative h-screen w-full overflow-hidden bg-[#071711]"
+        className="relative min-h-[100dvh] w-full overflow-hidden bg-[#071711]"
       >
         <motion.div
           style={{ y: yParallax }}
@@ -94,43 +94,43 @@ export default function Home() {
         </motion.div>
 
         {/* Richer gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 via-[#071711]/20 to-[#071711]/35 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/35 z-10" />
         {/* Side vignettes */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#071711]/40 to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#071711]/40 to-transparent z-10" />
+        <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#071711]/40 to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#071711]/40 to-transparent z-10" />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-          className="absolute bottom-8 sm:bottom-16 left-4 sm:left-6 md:left-16 lg:left-24 z-20 max-w-[calc(100%-2rem)] sm:max-w-3xl pr-4"
+          className="absolute bottom-6 sm:bottom-16 left-4 sm:left-8 md:left-16 lg:left-24 z-20 max-w-[calc(100%-2rem)] sm:max-w-3xl pr-2 sm:pr-4"
         >
           {/* Gold ornamental line */}
-          <div className="flex items-center gap-3 mb-4 sm:mb-5">
+          <div className="flex items-center gap-3 mb-3 sm:mb-5">
             <div className="w-4 h-[1px] bg-gold-accent/60" />
             <span className="w-1 h-1 bg-gold-accent/60 rotate-45 block" />
             <div className="w-4 h-[1px] bg-gold-accent/60" />
           </div>
-          <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-3 sm:mb-4">
+          <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
             Vernaura Jewels
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-4 sm:mb-6">
+          <h1 className="font-serif text-2.5xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-6">
             Timeless Elegance.<br />
             Crafted Without Compromise.
           </h1>
-          <p className="font-sans text-xs sm:text-sm md:text-base text-white/75 leading-relaxed tracking-wide max-w-xl mb-6 sm:mb-8">
+          <p className="font-sans text-xs sm:text-sm md:text-base text-white/75 leading-relaxed tracking-wide max-w-xl mb-5 sm:mb-8">
             {BRAND_COPY.aboutBrief}
           </p>
-          <div className="flex flex-col xs:flex-row flex-wrap gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <Link
               href="/collections"
-              className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.25em] text-white border border-white/40 px-6 sm:px-7 py-3 sm:py-3.5 hover:bg-white hover:text-text-primary transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.25em] text-white border border-white/40 px-6 sm:px-7 py-3 sm:py-3.5 hover:bg-white hover:text-text-primary transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white text-center"
             >
               Discover Collections
             </Link>
             <Link
               href="/bespoke"
-              className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.25em] text-white/80 hover:text-white transition-colors duration-300 py-3 sm:py-3.5"
+              className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.25em] text-white/80 hover:text-white transition-colors duration-300 py-3 sm:py-3.5 text-center"
             >
               Create Your Custom Jewellery →
             </Link>
@@ -142,7 +142,7 @@ export default function Home() {
       <main className="bg-background text-text-primary">
 
         {/* ─── 2. WELCOME / INTRO SECTION ─── */}
-        <section className="py-24 md:py-36 lg:py-44 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
+        <section className="py-14 sm:py-24 md:py-36 lg:py-44 px-4 sm:px-8 md:px-16 lg:px-24 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
 
             {/* Left Text */}
@@ -192,9 +192,9 @@ export default function Home() {
         </section>
 
         {/* ─── 3. OUR EXPERTISE — 6 Tiles arranged in 3-Column Spaced Grid ─── */}
-        <section className="py-24 md:py-36">
-          <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-            <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+        <section className="py-14 sm:py-24 md:py-36">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+            <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-14">
               <div className="space-y-3">
                 <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
                   Our Expertise
@@ -206,7 +206,7 @@ export default function Home() {
               </div>
               <Link
                 href="/collections"
-                className="font-sans text-[11px] uppercase tracking-[0.25em] text-text-primary border-b border-text-primary pb-0.5 hover:text-gold-accent hover:border-gold-accent transition-colors duration-300 shrink-0"
+                className="font-sans text-[11px] uppercase tracking-[0.25em] text-text-primary border-b border-text-primary pb-0.5 hover:text-gold-accent hover:border-gold-accent transition-colors duration-300 shrink-0 self-start md:self-auto"
               >
                 Discover Collections →
               </Link>
@@ -256,9 +256,9 @@ export default function Home() {
         </section>
 
         {/* ─── 4. WHY VERNAURA — A Commitment to Excellence (5-Column Top Hairline Layout) ─── */}
-        <section className="py-24 md:py-36 bg-surface">
-          <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-            <AnimatedSection className="space-y-4 mb-16">
+        <section className="py-14 sm:py-24 md:py-36 bg-surface">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+            <AnimatedSection className="space-y-4 mb-12 sm:mb-16">
               <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
                 Why Vernaura
               </span>
@@ -296,9 +296,9 @@ export default function Home() {
         </section>
 
         {/* ─── 5. OUR PHILOSOPHY — Luxury Rooted in Authenticity (With Images - Welworth Match) ─── */}
-        <section className="py-24 md:py-36 bg-background border-t border-border/40">
-          <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-            <AnimatedSection className="max-w-3xl space-y-4 mb-16">
+        <section className="py-14 sm:py-24 md:py-36 bg-background border-t border-border/40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+            <AnimatedSection className="max-w-3xl space-y-4 mb-12 sm:mb-16">
               <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
                 OUR PHILOSOPHY
               </span>
@@ -377,9 +377,9 @@ export default function Home() {
         </section>
 
         {/* ─── 5. VERNAURA JEWELS SILVER TEASER ─── */}
-        <section className="py-24 md:py-36 lg:py-44">
-          <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
+        <section className="py-14 sm:py-24 md:py-36 lg:py-44">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center">
 
               {/* Image Left */}
               <div className="lg:col-span-7 relative order-2 lg:order-1">
@@ -427,7 +427,7 @@ export default function Home() {
         </section>
 
         {/* ─── 6. BESPOKE JEWELLERY TEASER ─── */}
-        <section className="relative py-24 sm:py-36 md:py-52 flex items-end overflow-hidden bg-[#071711]">
+        <section className="relative py-20 sm:py-36 md:py-52 flex items-end overflow-hidden bg-[#071711]">
           <div className="absolute inset-0 w-full h-full">
             <Image
               src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1400&auto=format&fit=crop"
@@ -441,7 +441,7 @@ export default function Home() {
           {/* Ambient gold glow at bottom */}
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[200px] bg-gold-accent/[0.06] blur-[80px] pointer-events-none z-10" />
 
-          <AnimatedSection className="relative z-20 px-6 md:px-16 lg:px-24 max-w-7xl w-full space-y-5">
+          <AnimatedSection className="relative z-20 px-4 sm:px-8 md:px-16 lg:px-24 max-w-7xl w-full space-y-5">
             <span className="block font-sans text-[10px] uppercase tracking-[0.4em] text-white/50">
               Bespoke Jewellery
             </span>
@@ -458,7 +458,7 @@ export default function Home() {
             <div className="pt-4">
               <Link
                 href="/bespoke"
-                className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.25em] text-white border border-white/30 px-7 py-3.5 hover:bg-white hover:text-text-primary transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.25em] text-white border border-white/30 px-6 sm:px-7 py-3 sm:py-3.5 hover:bg-white hover:text-text-primary transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white text-center"
               >
                 Create Your Custom Jewellery
               </Link>
@@ -467,7 +467,7 @@ export default function Home() {
         </section>
 
         {/* ─── 7. FINAL BRAND STATEMENT ─── */}
-        <section className="py-28 md:py-40 px-6 md:px-16 lg:px-24 max-w-4xl mx-auto text-center">
+        <section className="py-20 sm:py-28 md:py-40 px-4 sm:px-8 md:px-16 lg:px-24 max-w-4xl mx-auto text-center">
           <AnimatedSection className="space-y-8">
             {/* Ornamental divider */}
             <div className="flex items-center justify-center gap-3">

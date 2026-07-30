@@ -31,19 +31,31 @@ export default function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-background/97 backdrop-blur-sm border-b border-border/50 py-4 shadow-[0_2px_24px_rgba(194,162,97,0.07),0_1px_0_rgba(194,162,97,0.08)]"
-            : "bg-transparent border-b border-white/10 py-6"
+            ? "bg-background/97 backdrop-blur-sm border-b border-border/50 py-3.5 sm:py-4 shadow-[0_2px_24px_rgba(194,162,97,0.07),0_1px_0_rgba(194,162,97,0.08)]"
+            : "bg-transparent border-b border-white/10 py-4 sm:py-6"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 flex items-center justify-between">
           {/* Logo Left */}
           <Link href="/" className="group z-50 flex items-center">
-            <div className="relative h-9 w-[155px] sm:h-11 sm:w-[189px] md:h-16 md:w-[275px] transition-transform duration-300 group-hover:scale-[1.02]">
+            <div className="relative h-8 w-[135px] sm:h-11 sm:w-[189px] md:h-16 md:w-[275px] transition-transform duration-300 group-hover:scale-[1.02]">
               {/* Light version (unscrolled over dark background) */}
               <Image
                 src="/images/logo-horizontal-light.png"
@@ -52,10 +64,10 @@ export default function Navbar() {
                 priority
                 sizes="(max-width: 768px) 189px, 275px"
                 className={`object-contain transition-opacity duration-500 ${
-                  isScrolled ? "opacity-0" : "opacity-100"
+                  isScrolled && !isOpen ? "opacity-0" : isOpen ? "opacity-0" : "opacity-100"
                 }`}
               />
-              {/* Dark gold version (scrolled over light background) */}
+              {/* Dark gold version (scrolled over light background or when drawer is open) */}
               <Image
                 src="/images/logo-horizontal-dark-gold.png"
                 alt={BRAND_NAME}
@@ -63,7 +75,7 @@ export default function Navbar() {
                 priority
                 sizes="(max-width: 768px) 189px, 275px"
                 className={`object-contain transition-opacity duration-500 ${
-                  isScrolled ? "opacity-100" : "opacity-0"
+                  isScrolled || isOpen ? "opacity-100" : "opacity-0"
                 }`}
               />
             </div>
@@ -97,11 +109,13 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Hamburger Icon */}
+          {/* Hamburger / Close Icon */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden transition-colors duration-300 p-3 -mr-3 z-50 touch-manipulation ${
-              isScrolled ? "text-text-primary hover:text-gold-accent" : "text-white hover:text-white/70"
+            className={`lg:hidden transition-colors duration-300 p-2.5 -mr-2 z-50 touch-manipulation ${
+              isOpen || isScrolled
+                ? "text-text-primary hover:text-gold-accent"
+                : "text-white hover:text-white/70"
             }`}
             aria-label="Toggle navigation menu"
           >
@@ -130,7 +144,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-background border-l border-gold-accent/15 z-40 lg:hidden flex flex-col justify-between p-8 sm:p-12 pt-28 sm:pt-32 shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-xs sm:max-w-sm bg-background border-l border-gold-accent/15 z-40 lg:hidden flex flex-col justify-between p-6 sm:p-12 pt-24 sm:pt-32 shadow-2xl overflow-y-auto"
             >
               {/* Background styling blur */}
               <div className="absolute top-1/4 right-0 w-48 h-48 bg-gold-accent/5 rounded-full blur-3xl pointer-events-none" />

@@ -37,9 +37,9 @@ export default function BespokeTimeline() {
   ];
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto px-6 md:px-12 py-16">
+    <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-12 py-10 sm:py-16">
 
-      {/* Horizontal Connecting Line */}
+      {/* Horizontal Connecting Line (Desktop) */}
       <div className="absolute top-[86px] left-[15%] right-[15%] h-[1px] bg-border/60 hidden md:block z-0">
         <motion.div
           initial={isReduced ? { scaleX: 1 } : { scaleX: 0 }}
@@ -47,6 +47,17 @@ export default function BespokeTimeline() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="h-full bg-gradient-to-r from-gold-accent/40 via-gold-accent to-gold-accent/40 origin-left w-full"
+        />
+      </div>
+
+      {/* Vertical Connecting Line (Mobile) */}
+      <div className="absolute top-[60px] bottom-[60px] left-1/2 -translate-x-1/2 w-[1px] bg-border/60 block md:hidden z-0">
+        <motion.div
+          initial={isReduced ? { scaleY: 1 } : { scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="w-full bg-gradient-to-b from-gold-accent/40 via-gold-accent to-gold-accent/40 origin-top h-full"
         />
       </div>
 
@@ -59,7 +70,7 @@ export default function BespokeTimeline() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: idx * 0.12, ease: [0.25, 1, 0.5, 1] }}
-            className="flex flex-col items-center space-y-5 group"
+            className="flex flex-col items-center space-y-4 sm:space-y-5 group bg-surface/50 sm:bg-transparent p-4 sm:p-0 rounded-lg sm:rounded-none"
           >
             {/* Diamond-shaped step dot */}
             <div className="relative flex items-center justify-center">
@@ -82,7 +93,7 @@ export default function BespokeTimeline() {
               <h3 className="font-serif text-xl font-light text-text-primary group-hover:text-gold-accent transition-colors duration-400">
                 {step.title}
               </h3>
-              <p className="font-sans text-xs text-text-muted leading-relaxed max-w-[200px] mx-auto">
+              <p className="font-sans text-xs text-text-muted leading-relaxed max-w-[240px] md:max-w-[200px] mx-auto">
                 {step.desc}
               </p>
             </div>

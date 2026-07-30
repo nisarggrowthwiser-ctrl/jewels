@@ -73,7 +73,7 @@ export default function BespokeForm() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-surface border border-border/40 p-6 sm:p-8 md:p-12">
+    <div className="max-w-2xl mx-auto bg-surface border border-border/40 p-5 sm:p-8 md:p-12">
       <AnimatePresence mode="wait">
         {status !== "success" ? (
           <motion.form
