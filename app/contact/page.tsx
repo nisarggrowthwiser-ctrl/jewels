@@ -37,7 +37,7 @@ export default function ContactPage() {
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
 
-        <div className="relative pb-8 sm:pb-16 left-0 px-4 sm:px-8 md:px-16 lg:px-24 z-20 max-w-2xl pt-28">
+        <div className="relative pb-8 sm:pb-14 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 max-w-2xl pt-28">
           <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
             Bespoke Salon
           </span>
@@ -54,7 +54,7 @@ export default function ContactPage() {
       <main className="bg-background text-text-primary">
 
         {/* ─── 2. CONTACT SPLIT COLUMNS ─── */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 py-14 sm:py-24 md:py-36 grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-16 items-stretch">
+        <section className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 py-16 sm:py-24 md:py-32 grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-16 items-stretch">
 
           {/* Details Left */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-12">
@@ -147,7 +147,7 @@ export default function ContactPage() {
         </section>
 
         {/* ─── 3. EMBEDDED MAP SECTION ─── */}
-        <section className="pb-14 sm:pb-24 md:pb-36 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+        <section className="pb-16 sm:pb-24 md:pb-32 max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
           <AnimatedSection className="space-y-3 mb-8">
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
               Location Coordinates

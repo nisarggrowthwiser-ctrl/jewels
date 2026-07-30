@@ -37,7 +37,7 @@ export default function BespokePage() {
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
 
-        <div className="relative pb-8 sm:pb-16 left-0 px-4 sm:px-8 md:px-16 lg:px-24 z-20 max-w-2xl pt-28">
+        <div className="relative pb-8 sm:pb-14 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 max-w-2xl pt-28">
           <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
             Private Commissions
           </span>
@@ -54,8 +54,8 @@ export default function BespokePage() {
       <main className="bg-background text-text-primary">
 
         {/* ─── 2. THE BESPOKE PROCESS TIMELINE ─── */}
-        <section className="py-14 sm:py-24 md:py-36 bg-surface">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+        <section className="py-16 sm:py-24 md:py-32 bg-surface">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
             <AnimatedSection className="space-y-3 mb-8 sm:mb-12 text-center md:text-left">
               <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
                 The Journey
@@ -71,7 +71,7 @@ export default function BespokePage() {
         </section>
 
         {/* ─── 3. BESPOKE QUESTIONNAIRE FORM ─── */}
-        <section className="py-14 sm:py-24 md:py-36 max-w-5xl mx-auto px-4 sm:px-8 md:px-12">
+        <section className="py-16 sm:py-24 md:py-32 max-w-5xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
           <BespokeForm />
         </section>
 

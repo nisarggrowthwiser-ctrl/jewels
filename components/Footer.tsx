@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 relative z-10 pt-12 sm:pt-16">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 relative z-10 pt-12 sm:pt-14">
         
         {/* Brand Column */}
         <div className="space-y-6">
@@ -222,7 +222,7 @@ export default function Footer() {
       </div>
 
       {/* Footer copyright section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 mt-12 sm:mt-16 pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-3 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 mt-10 sm:mt-14 pt-7 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-3 relative z-10">
         <p className="text-[11px] text-white/25 font-sans tracking-wider text-center md:text-left">
           &copy; {year} {BRAND_NAME}. All Rights Reserved. Unit of Vernaura Ventures Pvt. Ltd.
         </p>

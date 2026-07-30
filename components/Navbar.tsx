@@ -52,7 +52,7 @@ export default function Navbar() {
             : "bg-transparent border-b border-white/10 py-4 sm:py-6"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 flex items-center justify-between">
           {/* Logo Left */}
           <Link href="/" className="group z-50 flex items-center">
             <div className="relative h-8 w-[135px] sm:h-11 sm:w-[189px] md:h-16 md:w-[275px] transition-transform duration-300 group-hover:scale-[1.02]">

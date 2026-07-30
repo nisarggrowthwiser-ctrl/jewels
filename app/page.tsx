@@ -103,7 +103,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-          className="absolute bottom-6 sm:bottom-16 left-4 sm:left-8 md:left-16 lg:left-24 z-20 max-w-[calc(100%-2rem)] sm:max-w-3xl pr-2 sm:pr-4"
+          className="absolute bottom-6 sm:bottom-14 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 max-w-3xl pr-4"
         >
           {/* Gold ornamental line */}
           <div className="flex items-center gap-3 mb-3 sm:mb-5">
@@ -142,8 +142,8 @@ export default function Home() {
       <main className="bg-background text-text-primary">
 
         {/* ─── 2. WELCOME / INTRO SECTION ─── */}
-        <section className="py-14 sm:py-24 md:py-36 lg:py-44 px-4 sm:px-8 md:px-16 lg:px-24 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
+        <section className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
             {/* Left Text */}
             <div className="lg:col-span-7 space-y-7">
@@ -192,8 +192,8 @@ export default function Home() {
         </section>
 
         {/* ─── 3. OUR EXPERTISE — 6 Tiles arranged in 3-Column Spaced Grid ─── */}
-        <section className="py-14 sm:py-24 md:py-36">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+        <section className="py-16 sm:py-24 md:py-32">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
             <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-14">
               <div className="space-y-3">
                 <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
@@ -255,10 +255,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── 4. WHY VERNAURA — A Commitment to Excellence (5-Column Top Hairline Layout) ─── */}
-        <section className="py-14 sm:py-24 md:py-36 bg-surface">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
-            <AnimatedSection className="space-y-4 mb-12 sm:mb-16">
+        {/* ─── 4. WHY VERNAURA — A Commitment to Excellence ─── */}
+        <section className="py-16 sm:py-24 md:py-32 bg-surface">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+            <AnimatedSection className="space-y-4 mb-10 sm:mb-14">
               <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
                 Why Vernaura
               </span>
@@ -295,10 +295,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── 5. OUR PHILOSOPHY — Luxury Rooted in Authenticity (With Images - Welworth Match) ─── */}
-        <section className="py-14 sm:py-24 md:py-36 bg-background border-t border-border/40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
-            <AnimatedSection className="max-w-3xl space-y-4 mb-12 sm:mb-16">
+        {/* ─── 5. OUR PHILOSOPHY ─── */}
+        <section className="py-16 sm:py-24 md:py-32 bg-background border-t border-border/40">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+            <AnimatedSection className="max-w-3xl space-y-4 mb-10 sm:mb-14">
               <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
                 OUR PHILOSOPHY
               </span>
@@ -319,7 +319,7 @@ export default function Home() {
               </div>
             </AnimatedSection>
 
-            {/* 4-Column Grid with Images & Titles Below (Matching Screenshot) */}
+            {/* 4-Column Grid with Images & Titles Below */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
               {[
                 {
@@ -377,8 +377,8 @@ export default function Home() {
         </section>
 
         {/* ─── 5. VERNAURA JEWELS SILVER TEASER ─── */}
-        <section className="py-14 sm:py-24 md:py-36 lg:py-44">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+        <section className="py-16 sm:py-24 md:py-32">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center">
 
               {/* Image Left */}
@@ -427,7 +427,7 @@ export default function Home() {
         </section>
 
         {/* ─── 6. BESPOKE JEWELLERY TEASER ─── */}
-        <section className="relative py-20 sm:py-36 md:py-52 flex items-end overflow-hidden bg-[#071711]">
+        <section className="relative py-20 sm:py-32 md:py-44 flex items-end overflow-hidden bg-[#071711]">
           <div className="absolute inset-0 w-full h-full">
             <Image
               src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1400&auto=format&fit=crop"
@@ -441,7 +441,7 @@ export default function Home() {
           {/* Ambient gold glow at bottom */}
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[200px] bg-gold-accent/[0.06] blur-[80px] pointer-events-none z-10" />
 
-          <AnimatedSection className="relative z-20 px-4 sm:px-8 md:px-16 lg:px-24 max-w-7xl w-full space-y-5">
+          <AnimatedSection className="relative z-20 px-5 sm:px-8 md:px-12 lg:px-16 max-w-7xl w-full space-y-5">
             <span className="block font-sans text-[10px] uppercase tracking-[0.4em] text-white/50">
               Bespoke Jewellery
             </span>
@@ -467,7 +467,7 @@ export default function Home() {
         </section>
 
         {/* ─── 7. FINAL BRAND STATEMENT ─── */}
-        <section className="py-20 sm:py-28 md:py-40 px-4 sm:px-8 md:px-16 lg:px-24 max-w-4xl mx-auto text-center">
+        <section className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-16 max-w-4xl mx-auto text-center">
           <AnimatedSection className="space-y-8">
             {/* Ornamental divider */}
             <div className="flex items-center justify-center gap-3">

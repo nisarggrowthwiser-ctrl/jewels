@@ -37,7 +37,7 @@ export default function BespokeTimeline() {
   ];
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-12 py-10 sm:py-16">
+    <div className="relative w-full max-w-6xl mx-auto py-6 sm:py-10">
 
       {/* Horizontal Connecting Line (Desktop) */}
       <div className="absolute top-[86px] left-[15%] right-[15%] h-[1px] bg-border/60 hidden md:block z-0">

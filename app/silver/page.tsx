@@ -75,7 +75,7 @@ export default function SilverPage() {
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
 
-        <div className="relative pb-8 sm:pb-16 left-0 px-4 sm:px-8 md:px-16 lg:px-24 z-20 max-w-2xl pt-28">
+        <div className="relative pb-8 sm:pb-14 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 max-w-2xl pt-28">
           <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
             Vernaura Jewels Silver
           </span>
@@ -89,10 +89,10 @@ export default function SilverPage() {
         </div>
       </section>
 
-      <main className="theme-silver bg-background text-text-primary py-14 sm:py-24 md:py-36">
+      <main className="theme-silver bg-background text-text-primary py-16 sm:py-24 md:py-32">
 
         {/* ─── 2. CATEGORIES GRID ─── */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 mb-10 sm:mb-16">
+        <section className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 mb-10 sm:mb-14">
           <AnimatedSection className="space-y-3">
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
               The Silver Atelier
@@ -105,7 +105,7 @@ export default function SilverPage() {
         </section>
 
         {/* 3-Column Spaced Grid with Bottom-Left Image Overlay Titles */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 mb-14 sm:mb-24">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 mb-14 sm:mb-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {silverCategories.map((cat, idx) => (
               <AnimatedSection key={cat.title} delay={idx * 0.08}>
@@ -137,7 +137,7 @@ export default function SilverPage() {
         </div>
 
         {/* ─── 3. CLOSING CTA ─── */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-8 md:px-12 text-center">
+        <section className="max-w-4xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 text-center">
           <AnimatedSection className="bg-surface border border-border/40 p-5 sm:p-10 md:p-14 space-y-6">
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
               Corporate & Personal Commissions

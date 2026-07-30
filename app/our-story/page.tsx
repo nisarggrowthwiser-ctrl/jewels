@@ -77,7 +77,7 @@ export default function OurStory() {
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
 
-        <div className="relative pb-8 sm:pb-16 left-0 px-4 sm:px-8 md:px-16 lg:px-24 z-20 max-w-2xl pt-28">
+        <div className="relative pb-8 sm:pb-14 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 max-w-2xl pt-28">
           <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
             Our Story
           </span>
@@ -94,7 +94,7 @@ export default function OurStory() {
       <main className="bg-background text-text-primary">
 
         {/* ─── 2. OUR STORY NARRATIVE & WHY VERNAURA WAS CREATED ─── */}
-        <section className="py-14 sm:py-24 md:py-36 lg:py-44 px-4 sm:px-8 md:px-16 lg:px-24 max-w-7xl mx-auto">
+        <section className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
             {/* Left text */}
@@ -144,8 +144,8 @@ export default function OurStory() {
         </section>
 
         {/* ─── 3. OUR VISION SECTION ─── */}
-        <section className="py-14 sm:py-24 md:py-36 bg-surface border-y border-border/40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+        <section className="py-16 sm:py-24 md:py-32 bg-surface border-y border-border/40">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-16 items-center">
               
               <div className="lg:col-span-5 space-y-5">
@@ -179,8 +179,8 @@ export default function OurStory() {
         </section>
 
         {/* ─── 4. OUR PHILOSOPHY (4 PILLARS) ─── */}
-        <section className="py-14 sm:py-24 md:py-36 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
-          <AnimatedSection className="max-w-3xl space-y-4 mb-12 sm:mb-16">
+        <section className="py-16 sm:py-24 md:py-32 max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+          <AnimatedSection className="max-w-3xl space-y-4 mb-10 sm:mb-14">
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
               Our Philosophy
             </span>
@@ -215,8 +215,8 @@ export default function OurStory() {
         </section>
 
         {/* ─── 5. WHAT VERNAURA STANDS FOR (5 VALUES) ─── */}
-        <section className="py-14 sm:py-24 md:py-36 bg-surface border-t border-border/40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+        <section className="py-16 sm:py-24 md:py-32 bg-surface border-t border-border/40">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
               <div className="lg:col-span-4 space-y-5">
                 <AnimatedSection className="space-y-5">
@@ -261,8 +261,8 @@ export default function OurStory() {
         </section>
 
         {/* ─── 6. FOUNDER'S MESSAGE ─── */}
-        <section className="py-14 sm:py-24 md:py-36 max-w-5xl mx-auto px-4 sm:px-6 md:px-12">
-          <AnimatedSection className="bg-surface border border-border/50 p-5 sm:p-10 md:p-16 relative space-y-8">
+        <section className="py-16 sm:py-24 md:py-32 max-w-5xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+          <AnimatedSection className="bg-surface border border-border/50 p-5 sm:p-10 md:p-14 relative space-y-8">
             <div className="space-y-4">
               <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
                 Founder&apos;s Message
@@ -307,7 +307,7 @@ export default function OurStory() {
         </section>
 
         {/* ─── 7. CLOSING BRAND COMMITMENT ─── */}
-        <section className="pb-20 sm:pb-28 md:pb-40 max-w-4xl mx-auto px-4 sm:px-8 md:px-12 text-center">
+        <section className="pb-16 sm:pb-24 md:pb-32 max-w-4xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 text-center">
           <AnimatedSection className="space-y-8">
             <div className="flex justify-center">
               <div className="w-1.5 h-1.5 bg-gold-accent rotate-45" />

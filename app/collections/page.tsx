@@ -36,7 +36,7 @@ export default function CollectionsPage() {
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
 
-        <div className="relative pb-8 sm:pb-16 left-0 px-4 sm:px-8 md:px-16 lg:px-24 z-20 max-w-2xl pt-28">
+        <div className="relative pb-8 sm:pb-14 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 max-w-2xl pt-28">
           <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
             Our Collections
           </span>
@@ -50,8 +50,8 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      <main className="bg-background text-text-primary py-14 sm:py-24 md:py-36">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 mb-10 sm:mb-16">
+      <main className="bg-background text-text-primary py-16 sm:py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 mb-10 sm:mb-14">
           <AnimatedSection className="space-y-3">
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
               The Vault
@@ -64,7 +64,7 @@ export default function CollectionsPage() {
         </div>
 
         {/* 3-Column Spaced Grid with Bottom-Left Image Overlay Titles */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {CATEGORIES.map((col, idx) => (
               <AnimatedSection key={col.slug} delay={idx * 0.08}>
