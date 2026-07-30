@@ -77,7 +77,7 @@ export default function Home() {
       {/* ─── 1. HERO — Full-bleed dark image, bottom-left official tagline & headline ─── */}
       <section
         ref={heroRef}
-        className="relative min-h-screen w-full overflow-hidden bg-[#071711] flex items-center sm:items-end"
+        className="relative min-h-[90vh] sm:min-h-screen w-full overflow-hidden bg-[#071711] flex items-end"
       >
         <motion.div
           style={{ y: yParallax }}
@@ -103,34 +103,34 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-          className="relative z-20 pt-24 sm:pt-28 pb-10 sm:pb-14 md:pb-16 px-5 sm:px-8 md:px-12 lg:px-16 w-full max-w-3xl"
+          className="relative z-20 pt-28 pb-10 sm:pb-14 md:pb-16 px-5 sm:px-8 md:px-12 lg:px-16 w-full max-w-3xl"
         >
           {/* Gold ornamental line */}
-          <div className="flex items-center gap-3 mb-2 sm:mb-5">
+          <div className="flex items-center gap-3 mb-2.5 sm:mb-5">
             <div className="w-4 h-[1px] bg-gold-accent/60" />
             <span className="w-1 h-1 bg-gold-accent/60 rotate-45 block" />
             <div className="w-4 h-[1px] bg-gold-accent/60" />
           </div>
-          <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-1.5 sm:mb-3">
+          <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-white/60 mb-2 sm:mb-3">
             Vernaura Jewels
           </span>
-          <h1 className="font-serif text-[1.65rem] sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] mb-2.5 sm:mb-5">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-snug mb-3 sm:mb-5">
             Timeless Elegance.<br />
             Crafted Without Compromise.
           </h1>
-          <p className="font-sans text-[11px] sm:text-sm md:text-base text-white/75 leading-relaxed tracking-wide max-w-xl mb-4 sm:mb-7 block">
+          <p className="font-sans text-xs sm:text-sm md:text-base text-white/75 leading-relaxed tracking-wide max-w-xl mb-5 sm:mb-7 block">
             {BRAND_COPY.aboutBrief}
           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <Link
               href="/collections"
-              className="inline-flex items-center justify-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-white border border-white/40 px-5 sm:px-7 py-2.5 sm:py-3.5 hover:bg-white hover:text-text-primary transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.22em] text-white border border-white/40 px-6 py-3 sm:py-3.5 hover:bg-white hover:text-text-primary transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Discover Collections
             </Link>
             <Link
               href="/bespoke"
-              className="inline-flex items-center justify-center gap-2 font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-white/80 hover:text-white transition-colors duration-300 py-2 sm:py-3.5"
+              className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.22em] text-white/80 hover:text-white transition-colors duration-300 py-2.5 sm:py-3.5"
             >
               Create Your Custom Jewellery →
             </Link>
