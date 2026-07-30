@@ -147,7 +147,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
-            className="fixed inset-0 z-[55] lg:hidden flex flex-col bg-[#071711] overflow-hidden"
+            className="fixed inset-0 z-[55] lg:hidden flex flex-col bg-[#071711] overflow-y-auto"
           >
             {/* Ambient gold glows */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] bg-gold-accent/[0.07] rounded-full blur-[80px] pointer-events-none" />
