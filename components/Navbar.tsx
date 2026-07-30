@@ -46,7 +46,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="group z-[60] flex items-center relative">
-            <div className="relative h-8 w-[135px] sm:h-11 sm:w-[189px] md:h-16 md:w-[275px] transition-transform duration-300 group-hover:scale-[1.02]">
+            <div className="relative h-11 w-[180px] sm:h-13 sm:w-[215px] md:h-16 md:w-[275px] transition-transform duration-300 group-hover:scale-[1.02]">
               {/* Light (over dark hero) */}
               <Image
                 src="/images/logo-horizontal-light.png"
@@ -161,7 +161,7 @@ export default function Navbar() {
               className="flex justify-center pt-24 pb-10"
             >
               <Link href="/" onClick={() => setIsOpen(false)}>
-                <div className="relative h-12 w-[200px] sm:h-14 sm:w-[240px]">
+                <div className="relative h-14 w-[230px] sm:h-16 sm:w-[265px]">
                   <Image
                     src="/images/logo-horizontal-light.png"
                     alt={BRAND_NAME}
