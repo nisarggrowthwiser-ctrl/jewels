@@ -39,7 +39,7 @@ export default function ContactPage() {
 
         <div className="relative pb-8 sm:pb-14 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 max-w-2xl pt-28">
           <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
-            Bespoke Salon
+            Vernaura Jewels — Ahmedabad
           </span>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-6">
             Contact &<br />
@@ -64,8 +64,8 @@ export default function ContactPage() {
                   The Showroom
                 </span>
                 <h2 className="font-serif text-3xl md:text-4xl font-light text-text-primary">
-                  Bandra Salon
-                </h2>
+                Thaltej Showroom
+              </h2>
                 <div className="w-8 h-[1px] bg-gold-accent" />
               </div>
 
@@ -85,9 +85,12 @@ export default function ContactPage() {
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-text-primary text-base font-light mb-0.5">Concierge Line</h3>
+                    <h3 className="font-serif text-text-primary text-base font-light mb-0.5">Company Line</h3>
                     <a href={`tel:${BRAND_COPY.contactDetails.phone}`} className="hover:text-gold-accent transition-colors block">
                       {BRAND_COPY.contactDetails.phone}
+                    </a>
+                    <a href={`tel:${BRAND_COPY.contactDetails.personalPhone}`} className="hover:text-gold-accent transition-colors block text-sm mt-0.5">
+                      {BRAND_COPY.contactDetails.personalPhone} <span className="text-[10px] text-text-muted">(Personal)</span>
                     </a>
                   </div>
                 </div>
@@ -153,20 +156,20 @@ export default function ContactPage() {
               Location Coordinates
             </span>
             <h2 className="font-serif text-2xl md:text-3xl font-light text-text-primary">
-              Find Us In Bandra West
+              Find Us In Thaltej, Ahmedabad
             </h2>
             <div className="w-8 h-[1px] bg-gold-accent" />
           </AnimatedSection>
 
           <AnimatedSection className="relative aspect-[4/3] sm:aspect-[16/6] w-full bg-surface overflow-hidden shadow-sm border border-border/40">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.488804675549!2d72.8258333153579!3d19.042222222222222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c975a5b5b5b5%3A0x5a5b5b5b5b5b5b5b!2sBandra%20West%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1626955555555!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.824!2d72.5054!3d23.0459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b4e4b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sThaltej%2C%20Ahmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1626955555555!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0, filter: "grayscale(1) contrast(1.1) invert(0.9)" }}
               allowFullScreen={true}
               loading="lazy"
-              aria-label="Google Maps Showing Bandra West Mumbai Showroom"
+              aria-label="Google Maps Showing Thaltej Ahmedabad Showroom"
             ></iframe>
           </AnimatedSection>
         </section>

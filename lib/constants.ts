@@ -112,9 +112,10 @@ export const BRAND_COPY = {
   ],
   finalStatement: "At Vernaura Jewels, we create more than jewellery. We create symbols of love, achievement, celebration, and legacy—crafted with exceptional artistry and designed to endure the passage of time.",
   contactDetails: {
-    address: "Mayfair Chambers, Bandra West, Mumbai, India",
-    phone: "+91 22 9876 5432",
-    email: "concierge@vernaurajewels.com",
+    address: "203, 204 Interstellar, Sindhubhavan to Bagban Road, Thaltej, Ahmedabad",
+    phone: "+91 93160 95950",
+    personalPhone: "+91 99792 32585",
+    email: "info@vernaurajewels.com",
     hours: "Mon - Sat: 11:00 AM - 7:30 PM (By Appointment Only)",
   },
 };
