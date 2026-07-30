@@ -15,14 +15,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -31,32 +26,28 @@ export default function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
-  // Lock body scroll when mobile drawer is open
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
   return (
     <>
+      {/* ─── TOP HEADER BAR ─── */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-background/97 backdrop-blur-sm border-b border-border/50 py-3.5 sm:py-4 shadow-[0_2px_24px_rgba(194,162,97,0.07),0_1px_0_rgba(194,162,97,0.08)]"
+            ? "bg-background/97 backdrop-blur-sm border-b border-border/50 py-3.5 sm:py-4 shadow-[0_2px_24px_rgba(194,162,97,0.07)]"
             : "bg-transparent border-b border-white/10 py-4 sm:py-6"
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 flex items-center justify-between">
-          {/* Logo Left */}
-          <Link href="/" className="group z-50 flex items-center">
+
+          {/* Logo */}
+          <Link href="/" className="group z-[60] flex items-center relative">
             <div className="relative h-8 w-[135px] sm:h-11 sm:w-[189px] md:h-16 md:w-[275px] transition-transform duration-300 group-hover:scale-[1.02]">
-              {/* Light version (unscrolled over dark background) */}
+              {/* Light (over dark hero) */}
               <Image
                 src="/images/logo-horizontal-light.png"
                 alt={BRAND_NAME}
@@ -67,7 +58,7 @@ export default function Navbar() {
                   isScrolled && !isOpen ? "opacity-0" : isOpen ? "opacity-0" : "opacity-100"
                 }`}
               />
-              {/* Dark gold version (scrolled over light background or when drawer is open) */}
+              {/* Dark-gold (scrolled or menu open) */}
               <Image
                 src="/images/logo-horizontal-dark-gold.png"
                 alt={BRAND_NAME}
@@ -81,7 +72,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Nav Links Right */}
+          {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center space-x-10">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
@@ -96,95 +87,152 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                  {/* Animated underline */}
                   <span
                     className={`absolute -bottom-1.5 left-0 w-full h-[1.5px] transform origin-left transition-transform duration-300 ease-out ${
                       isScrolled ? "bg-gold-accent" : "bg-white/80"
-                    } ${
-                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                    }`}
+                    } ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
                   />
                 </Link>
               );
             })}
           </nav>
 
-          {/* Hamburger / Close Icon */}
+          {/* Hamburger Button (mobile) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden transition-colors duration-300 p-2.5 -mr-2 z-50 touch-manipulation ${
-              isOpen || isScrolled
-                ? "text-text-primary hover:text-gold-accent"
-                : "text-white hover:text-white/70"
+            className={`lg:hidden relative z-[60] p-2.5 -mr-2 touch-manipulation transition-colors duration-300 ${
+              isOpen
+                ? "text-background"
+                : isScrolled
+                  ? "text-text-primary hover:text-gold-accent"
+                  : "text-white hover:text-white/70"
             }`}
             aria-label="Toggle navigation menu"
+            aria-expanded={isOpen}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <AnimatePresence mode="wait" initial={false}>
+              {isOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="w-6 h-6 text-white" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="open"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="w-6 h-6" />
+                </motion.span>
+              )}
+            </AnimatePresence>
           </button>
+
         </div>
       </header>
 
-      {/* Mobile Drawer (Smooth Slide-In from Right) */}
+      {/* ─── FULL-SCREEN MOBILE MENU ─── */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            {/* Backdrop Overlay */}
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+            className="fixed inset-0 z-[55] lg:hidden flex flex-col bg-[#071711] overflow-hidden"
+          >
+            {/* Ambient gold glows */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] bg-gold-accent/[0.07] rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-48 h-48 bg-gold-accent/[0.04] rounded-full blur-[60px] pointer-events-none" />
+
+            {/* ── Logo centred ── */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+              className="flex justify-center pt-24 pb-10"
+            >
+              <Link href="/" onClick={() => setIsOpen(false)}>
+                <div className="relative h-12 w-[200px] sm:h-14 sm:w-[240px]">
+                  <Image
+                    src="/images/logo-horizontal-light.png"
+                    alt={BRAND_NAME}
+                    fill
+                    priority
+                    sizes="240px"
+                    className="object-contain"
+                  />
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* Gold ornament */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+              className="flex items-center justify-center gap-3 mb-10"
+            >
+              <div className="w-10 h-[1px] bg-gold-accent/40 origin-right" />
+              <div className="w-1.5 h-1.5 bg-gold-accent/60 rotate-45" />
+              <div className="w-10 h-[1px] bg-gold-accent/40 origin-left" />
+            </motion.div>
+
+            {/* ── Nav Links centred ── */}
+            <nav className="flex flex-col items-center gap-0 flex-1">
+              {NAV_LINKS.map((link, idx) => {
+                const isActive = pathname === link.href;
+                return (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 + idx * 0.07, duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
+                    className="w-full"
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`group flex items-center justify-center py-4 w-full border-b border-white/[0.06] transition-colors duration-300 ${
+                        isActive ? "text-gold-accent" : "text-white/80 hover:text-white"
+                      }`}
+                    >
+                      <span className="font-serif text-2xl sm:text-3xl font-light tracking-wide group-hover:tracking-widest transition-all duration-500">
+                        {link.label}
+                      </span>
+                      {isActive && (
+                        <span className="ml-3 inline-block w-1.5 h-1.5 bg-gold-accent rotate-45 shrink-0" />
+                      )}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </nav>
+
+            {/* ── Footer info ── */}
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-stone-900/40 z-40 lg:hidden"
-            />
-
-            {/* Slide-in Drawer Container */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-[320px] sm:max-w-sm bg-background border-l border-gold-accent/15 z-40 lg:hidden flex flex-col justify-between p-5 sm:p-10 pt-20 sm:pt-28 shadow-2xl overflow-y-auto"
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="text-center py-8 px-6 space-y-1"
             >
-              {/* Background styling blur */}
-              <div className="absolute top-1/4 right-0 w-48 h-48 bg-gold-accent/5 rounded-full blur-3xl pointer-events-none" />
-
-              <nav className="flex flex-col space-y-8 relative z-10">
-                {NAV_LINKS.map((link, idx) => {
-                  const isActive = pathname === link.href;
-                  return (
-                    <motion.div
-                      key={link.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05, duration: 0.4 }}
-                    >
-                      <Link
-                        href={link.href}
-                        className={`text-xl font-serif tracking-wider transition-colors duration-300 hover:text-gold-accent block ${
-                          isActive ? "text-gold-accent font-medium" : "text-text-primary"
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  );
-                })}
-              </nav>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="border-t border-gold-accent/15 pt-8"
-              >
-                <p className="eyebrow text-gold-accent mb-2">VERNAURA VENTURES</p>
-                <p className="text-[11px] text-text-muted leading-relaxed font-sans tracking-wide">
-                  Showroom visits by prior appointment only.
-                </p>
-              </motion.div>
+              <p className="font-sans text-[9px] uppercase tracking-[0.35em] text-gold-accent/70">
+                Vernaura Jewels · Thaltej, Ahmedabad
+              </p>
+              <p className="font-sans text-[10px] text-white/30 tracking-wide">
+                By Appointment Only
+              </p>
             </motion.div>
-          </>
+
+          </motion.div>
         )}
       </AnimatePresence>
     </>
