@@ -77,7 +77,7 @@ export default function Home() {
       {/* ─── 1. HERO — Full-bleed dark image, bottom-left official tagline & headline ─── */}
       <section
         ref={heroRef}
-        className="relative min-h-[100dvh] w-full overflow-hidden bg-[#071711] flex items-end"
+        className="relative min-h-[65vh] sm:min-h-screen w-full overflow-hidden bg-[#071711] flex items-end"
       >
         <motion.div
           style={{ y: yParallax }}
@@ -103,7 +103,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-          className="relative z-20 pt-24 sm:pt-28 pb-12 sm:pb-14 md:pb-16 px-5 sm:px-8 md:px-12 lg:px-16 w-full max-w-3xl"
+          className="relative z-20 pt-20 sm:pt-28 pb-8 sm:pb-14 md:pb-16 px-5 sm:px-8 md:px-12 lg:px-16 w-full max-w-3xl"
         >
           {/* Gold ornamental line */}
           <div className="flex items-center gap-3 mb-3 sm:mb-5">
