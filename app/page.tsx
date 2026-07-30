@@ -77,7 +77,7 @@ export default function Home() {
       {/* ─── 1. HERO — Full-bleed dark image, bottom-left official tagline & headline ─── */}
       <section
         ref={heroRef}
-        className="relative min-h-[100dvh] w-full overflow-hidden bg-[#071711]"
+        className="relative min-h-screen w-full overflow-hidden bg-[#071711] flex items-end"
       >
         <motion.div
           style={{ y: yParallax }}
@@ -103,7 +103,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-          className="absolute bottom-6 sm:bottom-14 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 w-full max-w-3xl"
+          className="relative z-20 pb-8 sm:pb-14 px-5 sm:px-8 md:px-12 lg:px-16 w-full max-w-3xl pt-28"
         >
           {/* Gold ornamental line */}
           <div className="flex items-center gap-3 mb-3 sm:mb-5">
@@ -114,7 +114,7 @@ export default function Home() {
           <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-3">
             Vernaura Jewels
           </span>
-          <h1 className="font-serif text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-5">
+          <h1 className="font-serif text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] mb-3 sm:mb-5">
             Timeless Elegance.<br />
             Crafted Without Compromise.
           </h1>
