@@ -144,7 +144,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-xs sm:max-w-sm bg-background border-l border-gold-accent/15 z-40 lg:hidden flex flex-col justify-between p-6 sm:p-12 pt-24 sm:pt-32 shadow-2xl overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-[320px] sm:max-w-sm bg-background border-l border-gold-accent/15 z-40 lg:hidden flex flex-col justify-between p-5 sm:p-10 pt-20 sm:pt-28 shadow-2xl overflow-y-auto"
             >
               {/* Background styling blur */}
               <div className="absolute top-1/4 right-0 w-48 h-48 bg-gold-accent/5 rounded-full blur-3xl pointer-events-none" />

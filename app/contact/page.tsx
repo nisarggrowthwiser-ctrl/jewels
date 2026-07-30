@@ -121,7 +121,7 @@ export default function ContactPage() {
               <span className="block font-sans text-[9px] uppercase tracking-[0.3em] text-text-muted">
                 Follow the House
               </span>
-              <div className="flex items-center space-x-6 text-xs text-text-primary font-sans uppercase tracking-widest text-[10px]">
+              <div className="flex items-center flex-wrap gap-x-4 gap-y-2 text-xs text-text-primary font-sans uppercase tracking-widest text-[10px]">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gold-accent transition-colors">
                   Instagram
                 </a>

@@ -68,7 +68,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-surface border border-border/40 p-6 sm:p-8 md:p-12 h-full flex flex-col justify-center">
+    <div className="bg-surface border border-border/40 p-5 sm:p-8 md:p-12 h-full flex flex-col justify-center">
       <AnimatePresence mode="wait">
         {status !== "success" ? (
           <motion.form

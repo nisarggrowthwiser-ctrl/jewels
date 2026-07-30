@@ -307,7 +307,7 @@ export default function OurStory() {
         </section>
 
         {/* ─── 7. CLOSING BRAND COMMITMENT ─── */}
-        <section className="pb-16 sm:pb-24 md:pb-32 max-w-4xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 text-center">
+        <section className="py-12 sm:py-16 md:pb-32 max-w-4xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 text-center">
           <AnimatedSection className="space-y-8">
             <div className="flex justify-center">
               <div className="w-1.5 h-1.5 bg-gold-accent rotate-45" />

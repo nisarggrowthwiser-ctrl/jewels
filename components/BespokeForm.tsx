@@ -181,10 +181,10 @@ export default function BespokeForm() {
               <span className="eyebrow text-[9px] text-text-muted/80 block uppercase tracking-widest">
                 Reference Image Upload
               </span>
-              <label className="flex items-center justify-between border border-dashed border-stone-300 hover:border-gold-accent transition-colors duration-300 p-4 cursor-pointer">
-                <div className="flex items-center gap-3 text-xs text-text-muted font-sans">
-                  <Upload className="w-4 h-4 text-gold-accent" />
-                  <span>
+              <label className="flex items-center justify-between gap-3 border border-dashed border-stone-300 hover:border-gold-accent transition-colors duration-300 p-3 sm:p-4 cursor-pointer">
+                <div className="flex items-center gap-3 text-xs text-text-muted font-sans min-w-0">
+                  <Upload className="w-4 h-4 text-gold-accent shrink-0" />
+                  <span className="truncate">
                     {form.file ? form.file.name : "Attach reference sketch or design concept"}
                   </span>
                 </div>
@@ -194,7 +194,7 @@ export default function BespokeForm() {
                   onChange={handleFileChange}
                   className="hidden"
                 />
-                <span className="eyebrow text-[8px] border border-stone-300 px-3 py-1.5 hover:bg-text-primary hover:text-background hover:border-text-primary transition-all duration-300">
+                <span className="eyebrow text-[8px] border border-stone-300 px-2 sm:px-3 py-1.5 hover:bg-text-primary hover:text-background hover:border-text-primary transition-all duration-300 shrink-0">
                   Choose
                 </span>
               </label>

@@ -103,7 +103,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-          className="absolute bottom-6 sm:bottom-14 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 max-w-3xl pr-4"
+          className="absolute bottom-6 sm:bottom-14 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 w-full max-w-3xl"
         >
           {/* Gold ornamental line */}
           <div className="flex items-center gap-3 mb-3 sm:mb-5">
