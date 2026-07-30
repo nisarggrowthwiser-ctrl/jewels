@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   description: "Premium fine jewellery house specializing in natural and lab-grown diamonds, gold, polki, kundan, bridal, and custom designs.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#071711",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
