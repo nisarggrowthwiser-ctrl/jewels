@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold-accent/[0.02] rounded-full blur-[80px] pointer-events-none" />
 
       {/* ─── MARQUEE STRIP ─── */}
-      <div className="border-b border-white/[0.05] overflow-hidden bg-white/[0.01] py-3.5">
+      <div className="border-y border-gold-accent/20 overflow-hidden bg-gold-accent/[0.04] py-3.5">
         <div className="marquee-track">
           {[
             "Natural Diamonds", "◆", "Lab-Grown Diamonds", "◆",
@@ -47,8 +47,8 @@ export default function Footer() {
           ].map((item, i) => (
             <span
               key={i}
-              className={`font-sans text-[9px] uppercase tracking-[0.3em] mx-5 ${
-                item === "◆" ? "text-gold-accent/40" : "text-white/20"
+              className={`font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.3em] mx-6 ${
+                item === "◆" ? "text-gold-accent font-bold" : "text-white/80 font-medium"
               }`}
             >
               {item}
