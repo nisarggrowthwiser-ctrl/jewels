@@ -63,7 +63,7 @@ export const CATEGORIES: Category[] = [
         id: "lgd-3",
         title: "Infinity Diamond Band",
         price: "INR 95,000 - INR 1,80,000",
-        image: "https://images.unsplash.com/photo-1610398087193-41c1d81d1575?q=80&w=600&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=600&auto=format&fit=crop",
         href: "/contact?inquiry=lgd-3",
       },
       {

@@ -38,22 +38,22 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background border-b border-border/50 py-3 sm:py-4 shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
-            : "bg-transparent border-b border-white/10 py-4 sm:py-6"
+            ? "bg-background border-b border-border/50 py-1.5 sm:py-2 shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
+            : "bg-transparent border-b border-white/10 py-2 sm:py-3"
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 flex items-center justify-between">
 
           {/* Logo */}
           <Link href="/" className="group z-[60] flex items-center relative">
-            <div className="relative h-11 w-[180px] sm:h-13 sm:w-[215px] md:h-16 md:w-[275px] transition-transform duration-300 group-hover:scale-[1.02]">
+            <div className="relative h-[52px] w-[215px] max-w-[65vw] sm:max-w-none sm:h-[66px] sm:w-[270px] md:h-[80px] md:w-[325px] transition-transform duration-300 group-hover:scale-[1.02]">
               {/* Light (over dark hero) */}
               <Image
                 src="/images/logo-horizontal-light.png"
                 alt={BRAND_NAME}
                 fill
                 priority
-                sizes="(max-width: 768px) 189px, 275px"
+                sizes="(max-width: 768px) 270px, 325px"
                 className={`object-contain transition-opacity duration-500 ${
                   isScrolled && !isOpen ? "opacity-0" : isOpen ? "opacity-0" : "opacity-100"
                 }`}
@@ -64,7 +64,7 @@ export default function Navbar() {
                 alt={BRAND_NAME}
                 fill
                 priority
-                sizes="(max-width: 768px) 189px, 275px"
+                sizes="(max-width: 768px) 270px, 325px"
                 className={`object-contain transition-opacity duration-500 ${
                   isScrolled || isOpen ? "opacity-100" : "opacity-0"
                 }`}

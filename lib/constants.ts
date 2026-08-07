@@ -18,7 +18,7 @@ export const BRAND_TAGLINE = "Timeless Elegance. Crafted Without Compromise.";
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Our Story", href: "/our-story" },
-  { label: "Collections", href: "/collections" },
+  { label: "Our Creations", href: "/collections" },
   { label: "Bespoke", href: "/bespoke" },
   { label: "Silver Collection", href: "/silver" },
   { label: "Contact", href: "/contact" },
@@ -70,7 +70,8 @@ export const COLLECTIONS: Category[] = [
 ];
 
 export const BRAND_COPY = {
-  aboutBrief: "Vernaura Jewels is a luxury jewellery house dedicated to creating exceptional diamond, gold, polki, kundan, and silver creations that celebrate individuality, heritage, and craftsmanship.",
+  aboutBrief: "Vernaura Jewels is a luxury jewellery house dedicated to creating exceptional diamond, gold, polki, kundan, fine jewellery, and silver creations that celebrate individuality, heritage, and craftsmanship.",
+  customTagline: "Bespoke Luxury. Exceptional Value.",
   welcomeTitle: "Where Craftsmanship Meets Luxury",
   welcomeParagraphs: [
     "Vernaura Jewels, a unit of Vernaura Ventures Pvt. Ltd., is built on a simple belief: extraordinary jewellery should combine exceptional craftsmanship, authentic materials, and timeless design.",
@@ -114,7 +115,6 @@ export const BRAND_COPY = {
   contactDetails: {
     address: "203, 204 Interstellar, Sindhubhavan to Bagban Road, Thaltej, Ahmedabad",
     phone: "+91 93160 95950",
-    personalPhone: "+91 99792 32585",
     email: "info@vernaurajewels.com",
     hours: "Mon - Sat: 11:00 AM - 7:30 PM (By Appointment Only)",
   },

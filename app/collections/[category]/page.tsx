@@ -71,16 +71,18 @@ export default async function CategoryPage({ params }: PageProps) {
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
 
-        <div className="relative pb-14 sm:pb-16 left-0 px-5 sm:px-8 md:px-12 lg:px-16 z-20 max-w-2xl pt-28">
-          <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
-            {col.subtitle}
-          </span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-6">
-            {col.title}
-          </h1>
-          <p className="font-sans text-xs sm:text-sm text-white/70 leading-relaxed tracking-wide max-w-md block">
-            {col.description}
-          </p>
+        <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 z-20 pt-32 sm:pt-36 pb-12 sm:pb-16">
+          <div className="max-w-2xl">
+            <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
+              {col.subtitle}
+            </span>
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-6">
+              {col.title}
+            </h1>
+            <p className="font-sans text-xs sm:text-sm text-white/70 leading-relaxed tracking-wide max-w-md block">
+              {col.description}
+            </p>
+          </div>
         </div>
       </section>
 

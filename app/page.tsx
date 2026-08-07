@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import { Gem, ArrowRight } from "lucide-react";
 import { BRAND_COPY } from "@/lib/constants";
 
 export default function Home() {
@@ -24,49 +25,21 @@ export default function Home() {
   const { scrollY } = useScroll();
   const yParallax = useTransform(scrollY, [0, 800], [0, isReduced ? 0 : 120]);
 
-  // Official Expertise tiles data
+  // Official Expertise tiles data — 2 Featured Pillars
   const expertiseTiles = [
     {
-      title: "Natural Diamond Jewellery",
-      subtitle: "Brilliance & Rarity",
-      desc: "Featuring certified natural diamonds selected for their brilliance, beauty, and rarity.",
-      image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop",
-      href: "/collections/natural-diamond",
-    },
-    {
-      title: "Lab-Grown Diamond Jewellery",
-      subtitle: "Contemporary Luxury",
-      desc: "Contemporary luxury crafted with premium lab-grown diamonds offering exceptional quality and value.",
-      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop",
-      href: "/collections/lab-grown-diamond",
-    },
-    {
-      title: "Gold Jewellery",
-      subtitle: "Classic & Contemporary",
-      desc: "Timeless creations designed in classic and contemporary styles.",
-      image: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop",
-      href: "/collections/gold",
-    },
-    {
-      title: "Polki Jewellery",
-      subtitle: "Indian Grandeur",
-      desc: "Handcrafted pieces celebrating the grandeur of traditional Indian artistry.",
-      image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=800&auto=format&fit=crop",
-      href: "/collections/polki",
-    },
-    {
-      title: "Kundan Jewellery",
-      subtitle: "Heritage & Detail",
-      desc: "Exquisite heritage-inspired designs crafted with remarkable attention to detail.",
-      image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop",
-      href: "/collections/kundan",
-    },
-    {
       title: "Custom Jewellery",
-      subtitle: "One-of-a-Kind",
-      desc: "One-of-a-kind creations tailored exclusively to your vision.",
+      subtitle: "Bespoke Design & Tailored Luxury",
+      desc: "One-of-a-kind creations designed in direct collaboration with our master craftsmen.",
       image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop",
       href: "/bespoke",
+    },
+    {
+      title: "Our Creations",
+      subtitle: "Curated Signatures",
+      desc: "Explore our signature diamond, gold, polki, kundan, and silver collections.",
+      image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop",
+      href: "/collections",
     },
   ];
 
@@ -99,45 +72,82 @@ export default function Home() {
         <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#071711]/40 to-transparent z-10" />
         <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#071711]/40 to-transparent z-10" />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-          className="relative z-20 pt-20 sm:pt-28 pb-8 sm:pb-14 md:pb-16 px-5 sm:px-8 md:px-12 lg:px-16 w-full max-w-3xl"
-        >
-          {/* Gold ornamental line */}
-          <div className="flex items-center gap-3 mb-3 sm:mb-5">
-            <div className="w-4 h-[1px] bg-gold-accent/60" />
-            <span className="w-1 h-1 bg-gold-accent/60 rotate-45 block" />
-            <div className="w-4 h-[1px] bg-gold-accent/60" />
-          </div>
-          <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-white/60 mb-2 sm:mb-3">
-            Vernaura Jewels
-          </span>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-snug mb-4 sm:mb-5">
-            Timeless Elegance.<br />
-            Crafted Without<br className="sm:hidden" />
-            Compromise.
-          </h1>
-          <p className="font-sans text-xs sm:text-sm md:text-base text-white/75 leading-relaxed tracking-wide max-w-xl mb-6 sm:mb-7 block">
-            {BRAND_COPY.aboutBrief}
-          </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-3.5 sm:gap-4">
-            <Link
-              href="/collections"
-              className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.22em] text-white border border-white/40 px-6 py-3 sm:py-3.5 hover:bg-white hover:text-text-primary transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white text-center"
-            >
-              Discover Collections
-            </Link>
-            <Link
-              href="/bespoke"
-              className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.22em] text-white/80 hover:text-white transition-colors duration-300 py-2.5 sm:py-3.5 text-center"
-            >
-              Create Your Custom Jewellery →
-            </Link>
-          </div>
-        </motion.div>
+        <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 z-20 pt-28 sm:pt-36 md:pt-40 pb-10 sm:pb-16 md:pb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+            className="max-w-3xl"
+          >
+            {/* Gold ornamental line */}
+            <div className="flex items-center gap-3 mb-3 sm:mb-5">
+              <div className="w-5 h-[1px] bg-gold-accent/60" />
+              <span className="w-1.5 h-1.5 bg-gold-accent/70 rotate-45 block" />
+              <div className="w-5 h-[1px] bg-gold-accent/60" />
+            </div>
+            <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-white/60 mb-2 sm:mb-3">
+              Vernaura Jewels
+            </span>
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] mb-4 sm:mb-6">
+              Timeless Elegance.<br />
+              Crafted Without{" "}
+              <br className="hidden sm:inline" />
+              Compromise.
+            </h1>
 
+            {/* Custom Luxury Tagline Pill Badge */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-gold-accent/15 border border-gold-accent/35 backdrop-blur-md mb-4 sm:mb-5">
+              <span className="w-1.5 h-1.5 bg-gold-accent rotate-45 shrink-0 block" />
+              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-gold-accent font-medium">
+                {BRAND_COPY.customTagline}
+              </span>
+            </div>
+
+            <p className="font-sans text-xs sm:text-sm md:text-base text-white/75 leading-relaxed tracking-wide max-w-xl mb-6 sm:mb-8 block">
+              {BRAND_COPY.aboutBrief}
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5 sm:gap-5">
+              <Link
+                href="/collections"
+                className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.22em] text-white bg-white/10 backdrop-blur-sm border border-white/40 px-7 py-3.5 sm:py-4 hover:bg-white hover:text-text-primary transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white text-center"
+              >
+                Discover Our Creations
+              </Link>
+              <Link
+                href="/bespoke"
+                className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.22em] text-white/90 hover:text-white border border-transparent hover:border-white/30 px-6 py-3.5 sm:py-4 transition-all duration-300 text-center"
+              >
+                Create Your Custom Jewellery →
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+      </section>
+
+      {/* ─── 1.5. LUXURY BESPOKE VALUE BANNER ─── */}
+      <section className="bg-[#05110d] border-y border-gold-accent/20 py-7 sm:py-9 px-5 sm:px-8 md:px-12 lg:px-16">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <div className="w-11 h-11 rounded-full border border-gold-accent/40 bg-gold-accent/10 flex items-center justify-center shrink-0">
+              <Gem className="w-5 h-5 text-gold-accent" />
+            </div>
+            <div className="space-y-1">
+              <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-gold-accent/80 font-medium">
+                Direct Atelier Craftsmanship
+              </span>
+              <p className="font-serif text-lg sm:text-xl md:text-2xl text-white font-light tracking-wide">
+                &ldquo;Bespoke Luxury. Exceptional Value.&rdquo;
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/bespoke"
+            className="inline-flex items-center gap-2.5 font-sans text-[11px] uppercase tracking-[0.22em] text-gold-accent border border-gold-accent/40 px-6 py-3 hover:bg-gold-accent hover:text-[#071711] transition-all duration-300 shrink-0 font-medium"
+          >
+            Start Custom Order <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </section>
 
       <main className="bg-background text-text-primary">
@@ -209,17 +219,17 @@ export default function Home() {
                 href="/collections"
                 className="font-sans text-[11px] uppercase tracking-[0.25em] text-text-primary border-b border-text-primary pb-0.5 hover:text-gold-accent hover:border-gold-accent transition-colors duration-300 shrink-0 self-start md:self-auto"
               >
-                Discover Collections →
+                Discover Our Creations →
               </Link>
             </AnimatedSection>
 
-            {/* 3-Column Grid with Bottom-Left Text Overlays */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {/* 2-Column Spaced Editorial Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
               {expertiseTiles.map((tile, idx) => (
-                <AnimatedSection key={tile.title} delay={idx * 0.07}>
-                  <Link href={tile.href} className="group block relative overflow-hidden bg-[#071711]">
-                    <div className="relative aspect-[4/5] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 via-[#071711]/25 to-transparent z-10 opacity-85 group-hover:opacity-100 transition-opacity duration-500" />
+                <AnimatedSection key={tile.title} delay={idx * 0.1}>
+                  <Link href={tile.href} className="group block relative overflow-hidden bg-[#071711] rounded-sm">
+                    <div className="relative aspect-[16/11] sm:aspect-[4/3] md:aspect-[16/11] overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 via-[#071711]/30 to-transparent z-10 opacity-85 group-hover:opacity-100 transition-opacity duration-500" />
 
                       <Image
                         src={tile.image}

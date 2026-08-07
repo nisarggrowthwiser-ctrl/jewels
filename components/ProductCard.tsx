@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,6 +19,8 @@ export default function ProductCard({
   image,
   href,
 }: ProductCardProps) {
+  const [imgSrc, setImgSrc] = useState(image);
+
   return (
     <Link href={href} className="group block">
       {/* Image container */}
@@ -36,12 +41,13 @@ export default function ProductCard({
 
         {/* Next.js Image */}
         <Image
-          src={image}
+          src={imgSrc}
           alt={title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
           priority={false}
+          onError={() => setImgSrc("https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=600&auto=format&fit=crop")}
         />
       </div>
 
