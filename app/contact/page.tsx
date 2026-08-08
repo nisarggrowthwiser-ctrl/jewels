@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
+import LocationBox from "@/components/LocationBox";
 import { BRAND_NAME, BRAND_COMPANY, BRAND_COPY } from "@/lib/constants";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
@@ -148,7 +149,7 @@ export default function ContactPage() {
 
         </section>
 
-        {/* ─── 3. EMBEDDED MAP SECTION ─── */}
+        {/* ─── 3. EMBEDDED MAP & LOCATION SECTION ─── */}
         <section className="pb-16 sm:pb-24 md:pb-32 max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
           <AnimatedSection className="space-y-3 mb-8">
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
@@ -160,16 +161,8 @@ export default function ContactPage() {
             <div className="w-8 h-[1px] bg-gold-accent" />
           </AnimatedSection>
 
-          <AnimatedSection className="relative aspect-[4/3] sm:aspect-[16/6] w-full bg-surface overflow-hidden shadow-sm border border-border/40">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.824!2d72.5054!3d23.0459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b4e4b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sThaltej%2C%20Ahmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1626955555555!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: "grayscale(1) contrast(1.1) invert(0.9)" }}
-              allowFullScreen={true}
-              loading="lazy"
-              aria-label="Google Maps Showing Thaltej Ahmedabad Design Atelier"
-            ></iframe>
+          <AnimatedSection>
+            <LocationBox />
           </AnimatedSection>
         </section>
 
