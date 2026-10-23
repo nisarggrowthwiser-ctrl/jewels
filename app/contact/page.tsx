@@ -24,30 +24,30 @@ export default function ContactPage() {
       <Navbar />
 
       {/* ─── 1. HERO — Full-bleed dark image, bottom-left headline ─── */}
-      <section className="relative min-h-[50vh] sm:min-h-[65vh] md:h-[70vh] w-full overflow-hidden bg-[#071711] flex items-end">
+      <section className="relative min-h-[58vh] sm:min-h-[65vh] md:h-[70vh] w-full overflow-hidden bg-[#071711] flex items-end">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1200&auto=format&fit=crop"
-            alt="Vernaura Jewels Thaltej design atelier"
+            src="/images/contact-hero.jpg"
+            alt="Vernaura Jewels Royal Heritage Bridal Jewellery - Contact Atelier"
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-50"
+            className="object-cover opacity-60"
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/35 to-[#071711]/40 z-10" />
 
-        <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 z-20 pt-32 sm:pt-36 pb-12 sm:pb-16">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 z-20 pt-28 sm:pt-36 pb-10 sm:pb-16">
           <div className="max-w-2xl">
-            <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
+            <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-white/60 mb-2 sm:mb-4">
               Vernaura Jewels — Ahmedabad
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-6">
+            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] mb-3 sm:mb-5">
               Contact &<br />
               Consultation
             </h1>
-            <p className="font-sans text-xs sm:text-sm text-white/70 leading-relaxed tracking-wide max-w-md block">
+            <p className="font-sans text-xs sm:text-sm text-white/75 leading-relaxed tracking-wide max-w-md block">
               Our concierge team is dedicated to curating your personal fine jewellery acquisitions. Reach out to schedule a private bespoke appointment or send a custom inquiry.
             </p>
           </div>
