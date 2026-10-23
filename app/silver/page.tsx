@@ -22,20 +22,21 @@ export default function SilverPage() {
     <>
       <Navbar />
 
-      {/* ─── 1. HERO — Full-bleed dark image, bottom-left headline ─── */}
-      <section className="relative min-h-[60vh] sm:min-h-[70vh] md:h-[80vh] w-full overflow-hidden bg-[#071711] flex items-end">
-        <div className="absolute inset-0 w-full h-full">
+      {/* ─── 1. HERO — Full-bleed dark image with zoomed-out jewellery showcase ─── */}
+      <section className="relative min-h-[65vh] sm:min-h-[75vh] md:h-[82vh] w-full overflow-hidden bg-[#071711] flex items-end">
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
           <Image
             src="/images/silver-hero.jpg"
-            alt="Vernaura Jewels Silver Collection Hero"
+            alt="Vernaura Jewels Silver Collection Hero Statement Choker"
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-60"
+            className="object-contain sm:object-cover object-center opacity-85 sm:opacity-80 transition-opacity duration-700"
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/35 to-[#071711]/40 z-10" />
+        {/* Elegant subtle gradient so jewellery is fully visible while text is easily legible */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071711] via-[#071711]/30 to-transparent z-10 pointer-events-none" />
 
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 z-20 pt-28 sm:pt-36 pb-10 sm:pb-16">
           <div className="max-w-2xl">
