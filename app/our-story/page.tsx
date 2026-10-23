@@ -66,12 +66,12 @@ export default function OurStory() {
       <section className="relative min-h-[55vh] sm:min-h-[70vh] md:h-[80vh] w-full overflow-hidden bg-[#071711] flex items-end">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=1200&auto=format&fit=crop"
-            alt="Master jeweller crafting"
+            src="/images/our-story-hero.jpg"
+            alt="Vernaura Jewels Royal Heritage Kundan & Polki Bridal Set"
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-50"
+            className="object-cover opacity-55"
           />
         </div>
 
@@ -132,8 +132,8 @@ export default function OurStory() {
                 <div className="absolute -top-6 -right-6 w-3/4 h-3/4 bg-surface z-0 hidden sm:block" aria-hidden="true" />
                 <div className="relative aspect-[4/5] overflow-hidden z-10">
                   <Image
-                    src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop"
-                    alt="Vernaura Jewels heirloom craftsmanship"
+                    src="/images/our-story-bangles.jpg"
+                    alt="Vernaura Jewels Royal Handcrafted Heritage Bangles"
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover"

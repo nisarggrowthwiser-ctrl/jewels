@@ -31,14 +31,14 @@ export default function Home() {
       title: "Custom Jewellery",
       subtitle: "Bespoke Design & Tailored Luxury",
       desc: "One-of-a-kind creations designed in direct collaboration with our master craftsmen.",
-      image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop",
+      image: "/images/home-expertise-custom.jpg",
       href: "/bespoke",
     },
     {
       title: "Our Creations",
       subtitle: "Curated Signatures",
       desc: "Explore our signature diamond, gold, polki, kundan, and silver collections.",
-      image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop",
+      image: "/images/home-expertise-creations.jpg",
       href: "/collections",
     },
   ];
@@ -57,8 +57,8 @@ export default function Home() {
           className="absolute inset-0 w-full h-[115%]"
         >
           <Image
-            src="/images/hero_jewellery.png"
-            alt="Vernaura Jewels fine jewellery hero"
+            src="/images/home-hero.jpg"
+            alt="Vernaura Jewels royal fine jewellery hero"
             fill
             priority
             sizes="100vw"
@@ -188,8 +188,8 @@ export default function Home() {
                 <div className="absolute -top-6 -right-6 w-3/4 h-3/4 bg-surface z-0 hidden sm:block" aria-hidden="true" />
                 <div className="relative aspect-[4/5] overflow-hidden z-10">
                   <Image
-                    src="https://images.unsplash.com/photo-1619119069152-a2b331eb392a?q=80&w=900&auto=format&fit=crop"
-                    alt="Vernaura Jewels atelier craftsmanship"
+                    src="/images/home-welcome.jpg"
+                    alt="Vernaura Jewels royal bridal bangles"
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 45vw"
@@ -398,8 +398,8 @@ export default function Home() {
                   <div className="absolute -top-6 -left-6 w-3/4 h-3/4 bg-surface z-0 hidden sm:block" aria-hidden="true" />
                   <div className="relative aspect-[4/3] overflow-hidden z-10">
                     <Image
-                      src="/images/silver_teaser.png"
-                      alt="Vernaura Jewels Silver collection"
+                      src="/images/home-silver-crafted.jpg"
+                      alt="Vernaura Jewels Silver - Silver Crafted with Distinction"
                       fill
                       sizes="(max-width: 1024px) 100vw, 55vw"
                       className="object-cover"
