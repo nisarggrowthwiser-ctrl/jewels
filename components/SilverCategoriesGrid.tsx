@@ -20,7 +20,7 @@ const SILVER_CATEGORIES: SilverCategoryItem[] = [
     title: "Silver Jewellery",
     subtitle: "Structural Statement Pieces",
     interestValue: "Sterling Silver Jewellery",
-    image: "https://images.unsplash.com/photo-1598560917505-59a3ad559071?q=80&w=800&auto=format&fit=crop",
+    image: "/images/silver-jewellery.jpg",
   },
   {
     id: "silver-decor",
@@ -41,7 +41,7 @@ const SILVER_CATEGORIES: SilverCategoryItem[] = [
     title: "Bespoke Silver",
     subtitle: "Custom Commissions",
     interestValue: "Bespoke Sterling Silver",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop",
+    image: "/images/silver-bespoke.jpg",
   },
 ];
 
@@ -83,9 +83,9 @@ export default function SilverCategoriesGrid() {
 
   return (
     <>
-      {/* ─── 4-Column Balanced Inline Grid on Desktop ─── */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 mb-14 sm:mb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-5 xl:gap-6">
+      {/* ─── 4-Column Balanced Grid: 2 columns on mobile, 4 columns on desktop ─── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 mb-12 sm:mb-20">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-5 xl:gap-6">
           {SILVER_CATEGORIES.map((cat, idx) => (
             <AnimatedSection key={cat.id} delay={idx * 0.08}>
               <div
@@ -107,22 +107,22 @@ export default function SilverCategoriesGrid() {
                     src={cat.image}
                     alt={cat.title}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                   />
 
-                  <div className="absolute bottom-5 left-5 right-5 z-20 transform group-hover:-translate-y-1 transition-transform duration-500 ease-out">
-                    <span className="block font-sans text-[9px] uppercase tracking-[0.28em] text-white/70 mb-1">
+                  <div className="absolute bottom-3 sm:bottom-5 left-3 sm:left-5 right-3 sm:right-5 z-20 transform sm:group-hover:-translate-y-1 transition-transform duration-500 ease-out">
+                    <span className="block font-sans text-[8px] sm:text-[9px] uppercase tracking-[0.2em] sm:tracking-[0.28em] text-white/70 mb-0.5 sm:mb-1 line-clamp-1">
                       {cat.subtitle}
                     </span>
-                    <h3 className="font-serif text-lg sm:text-xl lg:text-lg xl:text-xl text-white font-light leading-snug">
+                    <h3 className="font-serif text-sm sm:text-xl lg:text-lg xl:text-xl text-white font-light leading-snug">
                       {cat.title}
                     </h3>
 
                     {/* View Collection Action */}
-                    <div className="mt-3.5 inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.22em] text-gold-accent font-medium border-b border-gold-accent/40 pb-0.5 group-hover:border-gold-accent transition-colors">
-                      <span>View Our Collection</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <div className="mt-2 sm:mt-3.5 inline-flex items-center gap-1 sm:gap-1.5 text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.22em] text-gold-accent font-medium border-b border-gold-accent/40 pb-0.5 group-hover:border-gold-accent transition-colors">
+                      <span>View Collection</span>
+                      <ArrowUpRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                   </div>
                 </div>
@@ -152,28 +152,28 @@ export default function SilverCategoriesGrid() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 15 }}
               transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
-              className="relative w-full max-w-xl max-h-[92vh] overflow-y-auto bg-[#FBF9F5] border border-[#D5CCBA] shadow-[0_25px_70px_rgba(0,0,0,0.5)] z-10 p-2.5 sm:p-3.5 scrollbar-none rounded-none"
+              className="relative w-full max-w-xl max-h-[92vh] overflow-y-auto bg-[#FBF9F5] border border-[#D5CCBA] shadow-[0_25px_70px_rgba(0,0,0,0.5)] z-10 p-2 sm:p-3.5 scrollbar-none rounded-none"
             >
               {/* Inner Box Border (Exact match to the reference image) */}
-              <div className="relative border border-[#D5CCBA] p-6 sm:p-9 md:p-10 bg-[#FAF8F5]">
+              <div className="relative border border-[#D5CCBA] p-4 sm:p-8 md:p-10 bg-[#FAF8F5]">
                 {/* Close Button Inside the Framed Box */}
                 <button
                   onClick={handleCloseModal}
-                  className="absolute top-4 right-4 z-30 p-1 text-text-primary/70 hover:text-text-primary transition-colors cursor-pointer"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 p-1.5 text-text-primary/70 hover:text-text-primary transition-colors cursor-pointer"
                   aria-label="Close modal"
                 >
                   <X className="w-5 h-5" />
                 </button>
 
                 {/* Header */}
-                <div className="mb-8">
-                  <div className="flex items-center gap-2 mb-2">
+                <div className="mb-6 sm:mb-8 pr-6">
+                  <div className="flex items-center gap-2 mb-1.5">
                     <span className="w-5 h-[1px] bg-text-muted/60" />
-                    <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-text-muted font-medium">
+                    <span className="font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.3em] text-text-muted font-medium">
                       Private Viewing
                     </span>
                   </div>
-                  <h2 className="font-serif text-3xl sm:text-4xl text-text-primary font-light mb-2">
+                  <h2 className="font-serif text-2xl sm:text-4xl text-text-primary font-light mb-1.5">
                     Book an <span className="italic font-normal">Appointment</span>
                   </h2>
                   <p className="font-sans text-xs sm:text-sm text-text-muted leading-relaxed font-light max-w-md">

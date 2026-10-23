@@ -30,28 +30,28 @@ export const COLLECTIONS: Category[] = [
     title: "Natural Diamond Jewellery",
     subtitle: "Brilliance & Rarity",
     description: "Featuring certified natural diamonds selected for their brilliance, beauty, and rarity.",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop",
+    image: "/images/gd-natural-diamond.jpg",
   },
   {
     slug: "lab-grown-diamond",
     title: "Lab-Grown Diamond Jewellery",
     subtitle: "Contemporary Luxury",
     description: "Contemporary luxury crafted with premium lab-grown diamonds offering exceptional quality and value.",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop",
+    image: "/images/gd-lab-grown.jpg",
   },
   {
     slug: "polki",
     title: "Polki Jewellery",
     subtitle: "Grandeur of Artistry",
     description: "Handcrafted pieces celebrating the grandeur of traditional Indian artistry.",
-    image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=800&auto=format&fit=crop",
+    image: "/images/gd-polki.jpg",
   },
   {
     slug: "kundan",
     title: "Kundan Jewellery",
     subtitle: "Heritage & Detail",
     description: "Exquisite heritage-inspired designs crafted with remarkable attention to detail.",
-    image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop",
+    image: "/images/gd-kundan.jpg",
   },
 ];
 

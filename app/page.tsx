@@ -50,7 +50,7 @@ export default function Home() {
       {/* ─── 1. HERO — Full-bleed dark image, bottom-left official tagline & headline ─── */}
       <section
         ref={heroRef}
-        className="relative min-h-[65vh] sm:min-h-screen w-full overflow-hidden bg-[#071711] flex items-end"
+        className="relative min-h-[75vh] sm:min-h-screen w-full overflow-hidden bg-[#071711] flex items-end"
       >
         <motion.div
           style={{ y: yParallax }}
@@ -72,7 +72,7 @@ export default function Home() {
         <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#071711]/40 to-transparent z-10" />
         <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#071711]/40 to-transparent z-10" />
 
-        <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 z-20 pt-28 sm:pt-36 md:pt-40 pb-10 sm:pb-16 md:pb-20">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 z-20 pt-24 sm:pt-36 md:pt-40 pb-8 sm:pb-16 md:pb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export default function Home() {
             <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-white/60 mb-2 sm:mb-3">
               Vernaura Jewels
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] mb-4 sm:mb-6">
+            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] mb-3 sm:mb-6">
               Timeless Elegance.<br />
               Crafted Without{" "}
               <br className="hidden sm:inline" />
@@ -186,7 +186,7 @@ export default function Home() {
             <div className="lg:col-span-5 relative">
               <AnimatedSection delay={0.15} className="relative">
                 <div className="absolute -top-6 -right-6 w-3/4 h-3/4 bg-surface z-0 hidden sm:block" aria-hidden="true" />
-                <div className="relative aspect-[4/5] overflow-hidden z-10">
+                <div className="relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden z-10">
                   <Image
                     src="/images/home-welcome.jpg"
                     alt="Vernaura Jewels royal bridal bangles"
@@ -252,8 +252,8 @@ export default function Home() {
                         <p className="font-sans text-[11px] text-white/55 leading-relaxed font-light line-clamp-2">
                           {tile.desc}
                         </p>
-                        {/* Explore arrow — appears on hover */}
-                        <div className="flex items-center gap-1.5 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {/* Explore arrow — visible on mobile, reveals on hover on desktop */}
+                        <div className="flex items-center gap-1.5 mt-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
                           <span className="font-sans text-[9px] uppercase tracking-[0.25em] text-gold-accent">Explore</span>
                           <span className="text-gold-accent text-xs">→</span>
                         </div>

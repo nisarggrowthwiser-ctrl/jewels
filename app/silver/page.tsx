@@ -23,26 +23,26 @@ export default function SilverPage() {
       <Navbar />
 
       {/* ─── 1. HERO — Full-bleed dark image, bottom-left headline ─── */}
-      <section className="relative min-h-[55vh] sm:min-h-[70vh] md:h-[80vh] w-full overflow-hidden bg-[#071711] flex items-end">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] md:h-[80vh] w-full overflow-hidden bg-[#071711] flex items-end">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/images/silver_teaser.png"
-            alt="Structural Sterling Silver Ring"
+            src="/images/silver-hero.jpg"
+            alt="Vernaura Jewels Silver Collection Hero"
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-50"
+            className="object-cover opacity-60"
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/35 to-[#071711]/40 z-10" />
 
-        <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 z-20 pt-32 sm:pt-36 pb-12 sm:pb-16">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 z-20 pt-28 sm:pt-36 pb-10 sm:pb-16">
           <div className="max-w-2xl">
-            <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
+            <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-white/60 mb-2 sm:mb-4">
               Vernaura Jewels Silver
             </span>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-6">
+            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] mb-3 sm:mb-5">
               Structural. Modern.<br />
               Timeless.
             </h1>

@@ -6,7 +6,7 @@ export const CATEGORIES: Category[] = [
     title: "Natural Diamonds",
     subtitle: "Eternal Heritage",
     description: "Rare, hand-selected natural diamonds crafted into high-end statements of luxury. Earth-mined stones chosen for peerless fire, clarity, and exceptional cut grading.",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop",
+    image: "/images/gd-natural-diamond.jpg",
     products: [
       {
         id: "nd-1",
@@ -43,7 +43,7 @@ export const CATEGORIES: Category[] = [
     title: "Lab-Grown Diamonds",
     subtitle: "Conscious Innovation",
     description: "Ethical, premium lab-grown diamond creations displaying identical physical properties and matching scintillation. For the modern collector seeking conscious beauty.",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop",
+    image: "/images/gd-lab-grown.jpg",
     products: [
       {
         id: "lgd-1",
@@ -80,7 +80,7 @@ export const CATEGORIES: Category[] = [
     title: "Heritage Polki",
     subtitle: "Ancestral Majesty",
     description: "Traditional Indian craftsmanship detailing raw, uncut diamonds set in fine gold foil backings. Rich designs passed down through generations of royal ateliers.",
-    image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=800&auto=format&fit=crop",
+    image: "/images/gd-polki.jpg",
     products: [
       {
         id: "p-1",
@@ -117,7 +117,7 @@ export const CATEGORIES: Category[] = [
     title: "Royal Kundan",
     subtitle: "Imperial Enamel",
     description: "Exquisite pure gold foil setting matching dynamic gemstone encrustations and hand-drawn Meenakari enamelling on the reverse surfaces.",
-    image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop",
+    image: "/images/gd-kundan.jpg",
     products: [
       {
         id: "k-1",

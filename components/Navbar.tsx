@@ -36,7 +36,7 @@ export default function Navbar() {
     <>
       {/* ─── TOP HEADER BAR ─── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 ${isOpen ? "z-[65]" : "z-50"} transition-all duration-300 ${
           isScrolled
             ? "bg-background border-b border-border/50 py-1.5 sm:py-2 shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
             : "bg-transparent border-b border-white/10 py-2 sm:py-3"
@@ -201,11 +201,11 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className={`group flex items-center justify-center py-4 w-full border-b border-white/[0.06] transition-colors duration-300 ${
+                      className={`group flex items-center justify-center py-3 sm:py-4 w-full border-b border-white/[0.06] transition-colors duration-300 ${
                         isActive ? "text-gold-accent" : "text-white/80 hover:text-white"
                       }`}
                     >
-                      <span className="font-serif text-2xl sm:text-3xl font-light tracking-wide group-hover:tracking-widest transition-all duration-500">
+                      <span className="font-serif text-xl sm:text-3xl font-light tracking-wide group-hover:tracking-widest transition-all duration-500">
                         {link.label}
                       </span>
                       {isActive && (
