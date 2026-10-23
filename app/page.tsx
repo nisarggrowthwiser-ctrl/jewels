@@ -142,10 +142,10 @@ export default function Home() {
             </div>
           </div>
           <Link
-            href="/bespoke"
+            href="/contact"
             className="inline-flex items-center gap-2.5 font-sans text-[11px] uppercase tracking-[0.22em] text-gold-accent border border-gold-accent/40 px-6 py-3 hover:bg-gold-accent hover:text-[#071711] transition-all duration-300 shrink-0 font-medium"
           >
-            Start Custom Order <ArrowRight className="w-3.5 h-3.5" />
+            Contact <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
       </section>

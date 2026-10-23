@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import ProductCard from "@/components/ProductCard";
+import AppointmentSection from "@/components/AppointmentSection";
 import Button from "@/components/Button";
 import { CATEGORIES } from "@/lib/categories";
 import { notFound } from "next/navigation";
@@ -86,34 +86,10 @@ export default async function CategoryPage({ params }: PageProps) {
         </div>
       </section>
 
-      <main className="bg-background text-text-primary py-16 sm:py-24 md:py-32">
+      <main className="bg-background text-text-primary py-10 sm:py-14 md:py-16">
 
-        {/* ─── 2. PRODUCT CATALOG GRID ─── */}
-        <section className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 mb-14 sm:mb-20">
-          <AnimatedSection className="space-y-3 mb-10 sm:mb-12">
-            <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
-              The Catalog
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-light text-text-primary">
-              Curated Statements
-            </h2>
-            <div className="w-8 h-[1px] bg-gold-accent" />
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8">
-            {col.products.map((prod, index) => (
-              <AnimatedSection key={prod.id} delay={index * 0.08}>
-                <ProductCard
-                  title={prod.title}
-                  category={col.title}
-                  price={prod.price}
-                  image={prod.image}
-                  href={prod.href}
-                />
-              </AnimatedSection>
-            ))}
-          </div>
-        </section>
+        {/* ─── 2. BOOK AN APPOINTMENT SECTION ─── */}
+        <AppointmentSection initialInterest={col.title} />
 
         {/* ─── 3. DIAMOND TRUST SECTION (if applicable) ─── */}
         {isDiamond && (

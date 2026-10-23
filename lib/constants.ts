@@ -18,7 +18,7 @@ export const BRAND_TAGLINE = "Timeless Elegance. Crafted Without Compromise.";
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Our Story", href: "/our-story" },
-  { label: "Our Creations", href: "/collections" },
+  { label: "Gold & Diamond Creations", href: "/collections" },
   { label: "Bespoke", href: "/bespoke" },
   { label: "Silver Collection", href: "/silver" },
   { label: "Contact", href: "/contact" },
@@ -40,13 +40,6 @@ export const COLLECTIONS: Category[] = [
     image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop",
   },
   {
-    slug: "gold",
-    title: "Gold Jewellery",
-    subtitle: "Timeless Radiance",
-    description: "Timeless creations designed in classic and contemporary styles.",
-    image: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop",
-  },
-  {
     slug: "polki",
     title: "Polki Jewellery",
     subtitle: "Grandeur of Artistry",
@@ -59,13 +52,6 @@ export const COLLECTIONS: Category[] = [
     subtitle: "Heritage & Detail",
     description: "Exquisite heritage-inspired designs crafted with remarkable attention to detail.",
     image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    slug: "bridal",
-    title: "Custom Jewellery",
-    subtitle: "Tailored to Your Vision",
-    description: "One-of-a-kind creations tailored exclusively to your vision.",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
@@ -127,6 +113,6 @@ export const BRAND_COPY = {
     googleMapsEmbedUrl: "https://maps.google.com/maps?q=203%2C+204+Interstellar%2C+Sindhubhavan+to+Bagban+Road%2C+Thaltej%2C+Ahmedabad%2C+Gujarat+380059&t=&z=16&ie=UTF8&iwloc=&output=embed",
     phone: "+91 93160 95950",
     email: "info@vernaurajewels.com",
-    hours: "Mon - Sat: 11:00 AM - 7:30 PM (By Appointment Only)",
+    hours: "Mon - Sat: 11:00 AM - 7:00 PM (By Appointment Only)",
   },
 };

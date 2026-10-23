@@ -73,14 +73,14 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-10">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-9">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative group font-sans text-[11px] uppercase tracking-[0.25em] transition-colors duration-300 ${
+                  className={`relative group font-sans text-[11px] uppercase tracking-[0.22em] xl:tracking-[0.25em] whitespace-nowrap transition-colors duration-300 ${
                     isScrolled
                       ? isActive ? "text-gold-accent" : "text-text-primary hover:text-gold-accent"
                       : isActive ? "text-white" : "text-white/80 hover:text-white"

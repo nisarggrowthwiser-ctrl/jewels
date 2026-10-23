@@ -19,13 +19,28 @@ export default function InquiryPopup() {
   useEffect(() => {
     // Check if user has already dismissed or submitted during this session
     const hasSeen = sessionStorage.getItem("vernaura_inquiry_popup_dismissed");
-    if (!hasSeen) {
-      // Trigger modal under 2 seconds (1.5 seconds delay)
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 1500);
-      return () => clearTimeout(timer);
+    if (hasSeen) return;
+
+    // Track session opening time to pop up after 15-20 seconds (18s default)
+    const sessionStartTime = sessionStorage.getItem("vernaura_session_start_time");
+    const now = Date.now();
+    let startTime = now;
+
+    if (!sessionStartTime) {
+      sessionStorage.setItem("vernaura_session_start_time", now.toString());
+    } else {
+      startTime = parseInt(sessionStartTime, 10) || now;
     }
+
+    const elapsed = now - startTime;
+    const targetDelay = 18000; // 18 seconds (within 15-20 sec range)
+    const remainingDelay = Math.max(0, targetDelay - elapsed);
+
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, remainingDelay);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClose = () => {

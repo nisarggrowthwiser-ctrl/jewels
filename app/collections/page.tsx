@@ -7,11 +7,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Fine Jewellery Collections | Vernaura Jewels",
-  description: "Browse the curated signages of Vernaura Jewels: Natural Diamonds, Lab-Grown Diamonds, precious Gold Heritage, Polki, Kundan, and high-end Bridal Sets.",
+  title: "Gold & Diamond Creations | Vernaura Jewels",
+  description: "Browse the curated fine jewellery creations of Vernaura Jewels: Natural Diamonds, Lab-Grown Diamonds, Polki, and Kundan artistry.",
   openGraph: {
-    title: "Fine Jewellery Collections | Vernaura Jewels",
-    description: "Browse the curated signages of Vernaura Jewels.",
+    title: "Gold & Diamond Creations | Vernaura Jewels",
+    description: "Browse the curated fine jewellery creations of Vernaura Jewels.",
     type: "website",
   },
 };
@@ -39,7 +39,7 @@ export default function CollectionsPage() {
         <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 z-20 pt-32 sm:pt-36 pb-12 sm:pb-16">
           <div className="max-w-2xl">
             <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/60 mb-2 sm:mb-4">
-              Our Creations
+              Gold & Diamond Creations
             </span>
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] mb-3 sm:mb-6">
               Curated Materials &<br />
@@ -65,28 +65,28 @@ export default function CollectionsPage() {
           </AnimatedSection>
         </div>
 
-        {/* 3-Column Spaced Grid with Bottom-Left Image Overlay Titles */}
+        {/* 4-Column Balanced Inline Grid on Desktop */}
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-5 xl:gap-6">
             {CATEGORIES.map((col, idx) => (
               <AnimatedSection key={col.slug} delay={idx * 0.08}>
-                <Link href={`/collections/${col.slug}`} className="group block relative overflow-hidden bg-[#071711]">
-                  <div className="relative aspect-[4/5] overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/80 via-[#071711]/20 to-transparent z-10 opacity-85 group-hover:opacity-95 transition-opacity duration-500" />
+                <Link href={`/collections/${col.slug}`} className="group block relative overflow-hidden bg-[#071711] rounded-sm">
+                  <div className="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 via-[#071711]/25 to-transparent z-10 opacity-85 group-hover:opacity-95 transition-opacity duration-500" />
 
                     <Image
                       src={col.image}
                       alt={col.title}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                     />
 
-                    <div className="absolute bottom-6 left-6 right-6 z-20 transform group-hover:-translate-y-1 transition-transform duration-500 ease-out">
-                      <span className="block font-sans text-[9px] uppercase tracking-[0.3em] text-white/70 mb-1">
+                    <div className="absolute bottom-5 left-5 right-5 z-20 transform group-hover:-translate-y-1 transition-transform duration-500 ease-out">
+                      <span className="block font-sans text-[9px] uppercase tracking-[0.28em] text-white/70 mb-1">
                         {col.subtitle}
                       </span>
-                      <h3 className="font-serif text-lg md:text-xl text-white font-light leading-snug">
+                      <h3 className="font-serif text-lg sm:text-xl lg:text-lg xl:text-xl text-white font-light leading-snug">
                         {col.title}
                       </h3>
                     </div>
