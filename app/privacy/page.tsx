@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   const contact = BRAND_COPY.contactDetails;
-  const effectiveDate = "October 24, 2026";
   const websiteUrl = "https://vernaurajewels.com";
 
   return (
@@ -35,10 +34,7 @@ export default function PrivacyPolicyPage() {
               Privacy Policy
             </h1>
             <p className="font-sans text-sm sm:text-base text-[#6B6358] mt-3 font-light">
-              <strong className="font-medium text-[#2C241B]">Vernaura Jewels Pvt. Ltd.</strong> &bull; A Unit of {BRAND_COMPANY}
-            </p>
-            <p className="font-sans text-xs text-[#8A8275] tracking-wider uppercase mt-2">
-              Effective Date: {effectiveDate}
+              <strong className="font-medium text-[#2C241B]">Vernaura Jewels</strong> &bull; A Unit of {BRAND_COMPANY}
             </p>
           </div>
 
@@ -48,7 +44,7 @@ export default function PrivacyPolicyPage() {
             {/* Preamble */}
             <div className="space-y-5">
               <p>
-                <strong className="font-medium text-[#1C1A17]">Vernaura Jewels Pvt. Ltd.</strong> (&ldquo;Vernaura Jewels,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting the privacy and security of your personal information. We handle personal data in accordance with applicable data protection and privacy laws in India.
+                <strong className="font-medium text-[#1C1A17]">Vernaura Jewels</strong> (&ldquo;Vernaura Jewels,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is committed to protecting the privacy and security of your personal information. We handle personal data in accordance with applicable data protection and privacy laws in India.
               </p>
               <p>
                 This Privacy Policy explains what personal information we collect when you visit or use our website, how we use and disclose that information, the choices available to you, and the measures we take to protect your personal data.
@@ -334,7 +330,7 @@ export default function PrivacyPolicyPage() {
                 Our website may contain links to third-party websites, payment services, social media platforms, or other external resources.
               </p>
               <p>
-                Vernaura Jewels Pvt. Ltd. does not control and is not responsible for the privacy practices, security, or content of third-party websites.
+                Vernaura Jewels does not control and is not responsible for the privacy practices, security, or content of third-party websites.
               </p>
               <p>
                 When you visit an external website, its own privacy policy and terms may apply. We encourage you to review those policies before providing personal information to third parties.
@@ -363,7 +359,7 @@ export default function PrivacyPolicyPage() {
                 10. Changes to This Privacy Policy
               </h2>
               <p>
-                Vernaura Jewels Pvt. Ltd. may update this Privacy Policy from time to time to reflect changes in our business practices, website functionality, services, or applicable legal requirements.
+                Vernaura Jewels may update this Privacy Policy from time to time to reflect changes in our business practices, website functionality, services, or applicable legal requirements.
               </p>
               <p>
                 Any revised policy will be published on our website with an updated effective date. Where required by applicable law, we will provide notice of material changes or obtain any necessary consent.
@@ -384,7 +380,7 @@ export default function PrivacyPolicyPage() {
 
               <div className="bg-[#F3EFE6] border border-[#E5DFD1] p-6 sm:p-8 space-y-3 rounded-sm my-6 text-[16px] sm:text-[17px]">
                 <p>
-                  <strong className="text-[#1C1A17]">Company Name:</strong> Vernaura Jewels Pvt. Ltd. (A Unit of {BRAND_COMPANY})
+                  <strong className="text-[#1C1A17]">Company Name:</strong> Vernaura Jewels (A Unit of {BRAND_COMPANY})
                 </p>
                 <p>
                   <strong className="text-[#1C1A17]">Website:</strong>{" "}

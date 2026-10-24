@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   const contact = BRAND_COPY.contactDetails;
-  const effectiveDate = "October 24, 2026";
   const websiteUrl = "https://vernaurajewels.com";
 
   return (
@@ -35,10 +34,7 @@ export default function TermsPage() {
               Terms & Conditions
             </h1>
             <p className="font-sans text-sm sm:text-base text-[#6B6358] mt-3 font-light">
-              <strong className="font-medium text-[#2C241B]">Vernaura Jewels Pvt. Ltd.</strong> &bull; A Unit of {BRAND_COMPANY}
-            </p>
-            <p className="font-sans text-xs text-[#8A8275] tracking-wider uppercase mt-2">
-              Effective Date: {effectiveDate}
+              <strong className="font-medium text-[#2C241B]">Vernaura Jewels</strong> &bull; A Unit of {BRAND_COMPANY}
             </p>
           </div>
 
@@ -49,7 +45,7 @@ export default function TermsPage() {
             <div className="space-y-5">
               <p>
                 These Terms and Conditions govern the use of the mobile application and website operated by{" "}
-                <strong className="font-medium text-[#1C1A17]">Vernaura Jewels Pvt. Ltd.</strong> (hereinafter referred to as &ldquo;Vernaura Jewels,&rdquo; &ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), a unit of <strong>{BRAND_COMPANY}</strong>.
+                <strong className="font-medium text-[#1C1A17]">Vernaura Jewels</strong> (hereinafter referred to as &ldquo;Vernaura Jewels,&rdquo; &ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), a unit of <strong>{BRAND_COMPANY}</strong>.
               </p>
               <p>
                 By accessing, browsing, registering on, or purchasing products through our Website, you acknowledge that you have read and understood these Terms and Conditions and agree to be bound by them.
@@ -66,7 +62,7 @@ export default function TermsPage() {
                   <strong>a)</strong> You must provide true, accurate, current, and complete information while registering on our Website or placing an order.
                 </p>
                 <p>
-                  <strong>b)</strong> You are responsible for maintaining and promptly updating your registration details to ensure that the information remains accurate and complete. Vernaura Jewels Pvt. Ltd. reserves the right to verify the information provided by you and request additional documents or details where necessary for order processing, payment verification, fraud prevention, or delivery.
+                  <strong>b)</strong> You are responsible for maintaining and promptly updating your registration details to ensure that the information remains accurate and complete. Vernaura Jewels reserves the right to verify the information provided by you and request additional documents or details where necessary for order processing, payment verification, fraud prevention, or delivery.
                 </p>
                 <p className="text-[15px] sm:text-[16px] text-[#6B6358] italic">
                   If any information provided by you is found to be false, inaccurate, incomplete, or misleading, we may suspend or terminate your account or refuse to process your order, subject to applicable law.
@@ -98,7 +94,7 @@ export default function TermsPage() {
                 <strong>b)</strong> Users must be legally competent to enter into a binding contract under applicable Indian law.
               </p>
               <p>
-                <strong>c)</strong> Customers accessing the Website from outside India are responsible for complying with applicable local laws. However, Vernaura Jewels Pvt. Ltd. currently accepts orders for delivery within India only.
+                <strong>c)</strong> Customers accessing the Website from outside India are responsible for complying with applicable local laws. However, Vernaura Jewels currently accepts orders for delivery within India only.
               </p>
             </section>
 
@@ -139,7 +135,7 @@ export default function TermsPage() {
                   3.2 International Orders
                 </h3>
                 <p>
-                  Vernaura Jewels Pvt. Ltd. currently accepts orders for delivery within India only. International shipping and delivery are not available at present.
+                  Vernaura Jewels currently accepts orders for delivery within India only. International shipping and delivery are not available at present.
                 </p>
                 <p>
                   Any future change to our international shipping arrangements will be communicated through our Website or other official communication channels.
@@ -203,7 +199,7 @@ export default function TermsPage() {
                 <strong>b)</strong> Once an order has been placed, customer-requested cancellation may be restricted depending on the order&apos;s processing, customization, and dispatch status. Any cancellation restrictions will be communicated through the applicable order terms and will remain subject to mandatory rights under applicable law.
               </p>
               <p>
-                <strong>c)</strong> Vernaura Jewels Pvt. Ltd. reserves the right to cancel an order for legitimate reasons, including product unavailability, incorrect pricing, failed payment verification, suspected fraud, or legal and regulatory restrictions.
+                <strong>c)</strong> Vernaura Jewels reserves the right to cancel an order for legitimate reasons, including product unavailability, incorrect pricing, failed payment verification, suspected fraud, or legal and regulatory restrictions.
               </p>
               <p>
                 <strong>d)</strong> Customers will be notified if an order is cancelled fully or partially. Where payment has already been collected, any applicable refund will be initiated in accordance with the refund policy.
@@ -216,7 +212,7 @@ export default function TermsPage() {
                 7. Order Restrictions
               </h2>
               <p>
-                Vernaura Jewels Pvt. Ltd. reserves the right to impose reasonable restrictions on order quantities or transaction values to prevent fraud, comply with legal requirements, manage stock availability, and protect customers.
+                Vernaura Jewels reserves the right to impose reasonable restrictions on order quantities or transaction values to prevent fraud, comply with legal requirements, manage stock availability, and protect customers.
               </p>
               <p>
                 Restrictions may apply to orders associated with the same customer account, payment instrument, billing address, or shipping address. Where an order is restricted or cancelled, the customer will be notified where reasonably practicable.
@@ -229,7 +225,7 @@ export default function TermsPage() {
                 8. Return Policy
               </h2>
               <p>
-                Vernaura Jewels Pvt. Ltd. aims to provide customers with a satisfactory shopping experience.
+                Vernaura Jewels aims to provide customers with a satisfactory shopping experience.
               </p>
 
               <div className="space-y-4">
@@ -290,7 +286,7 @@ export default function TermsPage() {
                 10. Fraudulent Transactions and Misuse
               </h2>
               <p>
-                Vernaura Jewels Pvt. Ltd. reserves the right to investigate suspected fraudulent transactions, unauthorized use of payment instruments, identity misrepresentation, or other unlawful activity involving the Website.
+                Vernaura Jewels reserves the right to investigate suspected fraudulent transactions, unauthorized use of payment instruments, identity misrepresentation, or other unlawful activity involving the Website.
               </p>
               <p>
                 Where legally permissible, we may suspend or cancel suspicious orders, restrict access to accounts, recover legally recoverable losses, and initiate appropriate civil or criminal proceedings.
@@ -331,7 +327,7 @@ export default function TermsPage() {
                 12. Limitation of Liability
               </h2>
               <p>
-                To the extent permitted by applicable law, Vernaura Jewels Pvt. Ltd. shall not be liable for indirect or consequential losses arising from the use of the Website or delays in delivery caused by circumstances beyond our reasonable control.
+                To the extent permitted by applicable law, Vernaura Jewels shall not be liable for indirect or consequential losses arising from the use of the Website or delays in delivery caused by circumstances beyond our reasonable control.
               </p>
               <p>
                 Nothing in these Terms and Conditions excludes or limits liability where such exclusion or limitation is prohibited by law, including liability for fraud, wilful misconduct, or mandatory consumer remedies.
@@ -344,7 +340,7 @@ export default function TermsPage() {
                 13. Force Majeure
               </h2>
               <p>
-                Vernaura Jewels Pvt. Ltd. shall not be responsible for delays or failures in performing its obligations to the extent caused by events beyond its reasonable control, including natural disasters, fires, floods, war, civil unrest, strikes, government restrictions, public emergencies, pandemics, transport disruptions, or interruptions in essential services.
+                Vernaura Jewels shall not be responsible for delays or failures in performing its obligations to the extent caused by events beyond its reasonable control, including natural disasters, fires, floods, war, civil unrest, strikes, government restrictions, public emergencies, pandemics, transport disruptions, or interruptions in essential services.
               </p>
               <p>
                 We will make reasonable efforts to minimize the impact of such events and resume performance when reasonably possible.
@@ -357,7 +353,7 @@ export default function TermsPage() {
                 14. Suspension and Termination
               </h2>
               <p>
-                Vernaura Jewels Pvt. Ltd. may suspend or restrict access to the Website where reasonably necessary for security, fraud prevention, legal compliance, or a material breach of these Terms and Conditions.
+                Vernaura Jewels may suspend or restrict access to the Website where reasonably necessary for security, fraud prevention, legal compliance, or a material breach of these Terms and Conditions.
               </p>
               <p>
                 Where appropriate and legally required, we will provide notice and an opportunity to address the issue. Suspension or termination will not affect accrued rights, applicable refund obligations, or liabilities arising before termination.
@@ -383,7 +379,7 @@ export default function TermsPage() {
                 16. Changes to These Terms and Conditions
               </h2>
               <p>
-                Vernaura Jewels Pvt. Ltd. reserves the right to amend these Terms and Conditions from time to time.
+                Vernaura Jewels reserves the right to amend these Terms and Conditions from time to time.
               </p>
               <p>
                 Updated terms will be published on the Website with an appropriate effective date. Changes will apply prospectively, subject to applicable law and any mandatory notice or consent requirements. Continued use of the Website after the revised terms take effect may constitute acceptance where legally valid.
@@ -414,7 +410,7 @@ export default function TermsPage() {
 
               <div className="bg-[#F3EFE6] border border-[#E5DFD1] p-6 sm:p-8 space-y-3 rounded-sm my-6 text-[16px] sm:text-[17px]">
                 <p>
-                  <strong className="text-[#1C1A17]">Company Name:</strong> Vernaura Jewels Pvt. Ltd. (A Unit of {BRAND_COMPANY})
+                  <strong className="text-[#1C1A17]">Company Name:</strong> Vernaura Jewels (A Unit of {BRAND_COMPANY})
                 </p>
                 <p>
                   <strong className="text-[#1C1A17]">Website:</strong>{" "}
