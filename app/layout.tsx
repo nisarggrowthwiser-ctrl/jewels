@@ -19,6 +19,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Vernaura Jewels | Timeless Elegance. Crafted Without Compromise.",
   description: "Premium fine jewellery house specializing in natural and lab-grown diamonds, gold, polki, kundan, bridal, and custom designs.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export const viewport = {
