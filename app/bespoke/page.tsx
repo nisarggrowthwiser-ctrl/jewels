@@ -26,8 +26,8 @@ export default function BespokePage() {
       <section className="relative min-h-[55vh] sm:min-h-[70vh] md:h-[80vh] w-full overflow-hidden bg-[#071711] flex items-end">
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop"
-            alt="Fine jewellery design sketches"
+            src="/images/bespoke-sketch-to-ring.png"
+            alt="Fine jewellery design sketches and sparkling ring"
             fill
             priority
             sizes="100vw"

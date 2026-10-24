@@ -346,12 +346,12 @@ export default function Home() {
                 {
                   title: "Personalization",
                   desc: "No two stories are alike. We believe jewellery should reflect the individuality of the person who wears it.",
-                  image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=600&auto=format&fit=crop"
+                  image: "/images/philosophy-personalization.jpeg"
                 },
                 {
                   title: "Timelessness",
                   desc: "Trends may evolve, but true elegance endures. We create jewellery designed to remain relevant across generations.",
-                  image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=600&auto=format&fit=crop"
+                  image: "/images/philosophy-timelessness.jpeg"
                 },
               ].map((pillar, idx) => (
                 <AnimatedSection
@@ -441,8 +441,8 @@ export default function Home() {
         <section className="relative py-20 sm:py-32 md:py-44 flex items-end overflow-hidden bg-[#071711]">
           <div className="absolute inset-0 w-full h-full">
             <Image
-              src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1400&auto=format&fit=crop"
-              alt="Bespoke jewellery design studio"
+              src="/images/bespoke-sketch-to-ring.png"
+              alt="Bespoke jewellery - from sketch to sparkling ring"
               fill
               sizes="100vw"
               className="object-cover opacity-40"
