@@ -336,7 +336,7 @@ export default function Home() {
                 {
                   title: "Craftsmanship",
                   desc: "Master artisanship remains at the heart of everything we create. Every detail matters, from design conception to final finishing.",
-                  image: "/images/philosophy-craftsmanship.jpg"
+                  image: "/images/craftsmanship-full.jpg"
                 },
                 {
                   title: "Authenticity",
