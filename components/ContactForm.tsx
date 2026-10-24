@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, AlertCircle } from "lucide-react";
 
 interface FormState {
   name: string;
@@ -12,6 +13,7 @@ interface FormState {
 }
 
 export default function ContactForm() {
+  const [state, handleSubmit, reset] = useForm("xdeekkva");
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
@@ -20,7 +22,6 @@ export default function ContactForm() {
   });
 
   const [errors, setErrors] = useState<Partial<FormState>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -44,7 +45,7 @@ export default function ContactForm() {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -52,28 +53,27 @@ export default function ContactForm() {
       return;
     }
 
-    setStatus("submitting");
+    await handleSubmit(e);
+  };
 
-    // Simulate API Submission
-    setTimeout(() => {
-      console.log("Contact form submitted successfully:", form);
-      setStatus("success");
-      setForm({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-    }, 1500);
+  const handleReset = () => {
+    reset();
+    setForm({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+    setErrors({});
   };
 
   return (
     <div className="bg-surface border border-border/40 p-5 sm:p-8 md:p-12 h-full flex flex-col justify-center">
       <AnimatePresence mode="wait">
-        {status !== "success" ? (
+        {!state.succeeded ? (
           <motion.form
             key="contact-form"
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -127,6 +127,7 @@ export default function ContactForm() {
               {errors.email && (
                 <span className="text-[10px] text-red-600 block mt-1 font-sans">{errors.email}</span>
               )}
+              <ValidationError prefix="Email" field="email" errors={state.errors} className="text-[10px] text-red-600 block mt-1 font-sans" />
             </div>
 
             {/* Subject Input */}
@@ -164,16 +165,20 @@ export default function ContactForm() {
               {errors.message && (
                 <span className="text-[10px] text-red-600 block mt-1 font-sans">{errors.message}</span>
               )}
+              <ValidationError prefix="Message" field="message" errors={state.errors} className="text-[10px] text-red-600 block mt-1 font-sans" />
             </div>
+
+            {/* Form-level errors */}
+            <ValidationError errors={state.errors} className="text-xs text-red-600 block font-sans" />
 
             {/* Submit Button */}
             <div className="pt-2">
               <button
                 type="submit"
-                disabled={status === "submitting"}
-                className="w-full flex items-center justify-center gap-3 py-4 bg-text-primary text-background eyebrow text-[11px] tracking-[0.25em] hover:bg-gold-accent hover:text-text-primary transition-all duration-400 ease-luxury focus:outline-none"
+                disabled={state.submitting}
+                className="w-full flex items-center justify-center gap-3 py-4 bg-text-primary text-background eyebrow text-[11px] tracking-[0.25em] hover:bg-gold-accent hover:text-text-primary transition-all duration-400 ease-luxury focus:outline-none disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {status === "submitting" ? (
+                {state.submitting ? (
                   <>
                     <div className="w-4 h-4 border border-background border-t-transparent rounded-full animate-spin" />
                     <span>Sending...</span>
@@ -208,7 +213,7 @@ export default function ContactForm() {
             </div>
             <div className="pt-4">
               <button
-                onClick={() => setStatus("idle")}
+                onClick={handleReset}
                 className="eyebrow text-[9px] text-gold-accent border border-gold-accent/20 px-6 py-2.5 hover:bg-gold-accent hover:text-text-primary hover:border-gold-accent transition-colors duration-300"
               >
                 Send another message
