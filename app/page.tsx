@@ -341,7 +341,7 @@ export default function Home() {
                 {
                   title: "Authenticity",
                   desc: "Whether natural diamonds, lab-grown diamonds, precious metals, or gemstones, we are committed to transparency and integrity.",
-                  image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=600&auto=format&fit=crop"
+                  image: "/images/philosophy-authenticity.jpg"
                 },
                 {
                   title: "Personalization",
