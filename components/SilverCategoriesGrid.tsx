@@ -27,14 +27,14 @@ const SILVER_CATEGORIES: SilverCategoryItem[] = [
     title: "Home Décor",
     subtitle: "Polished Objects of Art",
     interestValue: "Sterling Silver Home Décor",
-    image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop",
+    image: "/images/silver-home-decor.png",
   },
   {
     id: "silver-spiritual",
     title: "Spiritual Artifacts",
     subtitle: "Heritage & Devotion",
     interestValue: "Spiritual Silver Artifacts",
-    image: "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?q=80&w=800&auto=format&fit=crop",
+    image: "/images/silver-spiritual.png",
   },
   {
     id: "silver-bespoke",
