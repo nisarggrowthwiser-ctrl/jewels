@@ -12,5 +12,6 @@ export interface Category {
   subtitle: string;
   description: string;
   image: string;
+  imagePosition?: string;
   products: Product[];
 }

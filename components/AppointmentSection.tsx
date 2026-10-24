@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 
@@ -8,7 +8,31 @@ interface AppointmentSectionProps {
   initialInterest?: string;
 }
 
-export default function AppointmentSection({ initialInterest = "Natural Diamond Jewellery" }: AppointmentSectionProps) {
+export function normalizeInterest(val?: string): string {
+  if (!val) return "Natural Diamonds";
+  const lower = val.toLowerCase().trim();
+  if (lower.includes("lab-grown") || lower.includes("lab grown")) {
+    return "Lab-Grown Diamonds";
+  }
+  if (lower.includes("kundan")) {
+    return "Royal Kundan";
+  }
+  if (lower.includes("polki")) {
+    return "Heritage Polki";
+  }
+  if (lower.includes("natural")) {
+    return "Natural Diamonds";
+  }
+  if (lower.includes("silver")) {
+    return "Sterling Silver Jewellery";
+  }
+  if (lower.includes("bespoke") || lower.includes("custom")) {
+    return "Custom Bespoke Creations";
+  }
+  return val;
+}
+
+export default function AppointmentSection({ initialInterest = "Natural Diamonds" }: AppointmentSectionProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [form, setForm] = useState({
     name: "",
@@ -16,9 +40,15 @@ export default function AppointmentSection({ initialInterest = "Natural Diamond 
     email: "",
     date: "",
     time: "Any time",
-    interest: initialInterest,
+    interest: normalizeInterest(initialInterest),
     message: "",
   });
+
+  useEffect(() => {
+    if (initialInterest) {
+      setForm((prev) => ({ ...prev, interest: normalizeInterest(initialInterest) }));
+    }
+  }, [initialInterest]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,7 +67,7 @@ export default function AppointmentSection({ initialInterest = "Natural Diamond 
       email: "",
       date: "",
       time: "Any time",
-      interest: initialInterest,
+      interest: normalizeInterest(initialInterest),
       message: "",
     });
     setStatus("idle");
@@ -148,10 +178,10 @@ export default function AppointmentSection({ initialInterest = "Natural Diamond 
                       onChange={(e) => setForm({ ...form, interest: e.target.value })}
                       className="w-full bg-transparent border-0 border-b border-text-primary/30 focus:border-text-primary py-2 text-text-primary text-sm focus:outline-none transition-colors rounded-none cursor-pointer appearance-none pr-6"
                     >
-                      <option value="Natural Diamond Jewellery">Natural Diamond Jewellery</option>
-                      <option value="Lab-Grown Diamond Jewellery">Lab-Grown Diamond Jewellery</option>
+                      <option value="Natural Diamonds">Natural Diamonds</option>
+                      <option value="Lab-Grown Diamonds">Lab-Grown Diamonds</option>
                       <option value="Heritage Polki">Heritage Polki</option>
-                      <option value="Kundan Artistry">Kundan Artistry</option>
+                      <option value="Royal Kundan">Royal Kundan</option>
                       <option value="Custom Bespoke Creations">Custom Bespoke Creations</option>
                       <option value="Sterling Silver Jewellery">Sterling Silver Jewellery</option>
                     </select>

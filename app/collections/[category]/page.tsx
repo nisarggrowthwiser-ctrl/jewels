@@ -65,7 +65,7 @@ export default async function CategoryPage({ params }: PageProps) {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-45"
+            className={`object-cover opacity-45 ${col.imagePosition || "object-center"}`}
           />
         </div>
 

@@ -32,13 +32,16 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
+  const isLightPage = pathname?.startsWith("/privacy") || pathname?.startsWith("/terms");
+  const useDarkNav = isScrolled || isLightPage;
+
   return (
     <>
       {/* ─── TOP HEADER BAR ─── */}
       <header
         className={`fixed top-0 left-0 right-0 ${isOpen ? "z-[65]" : "z-50"} transition-all duration-300 ${
-          isScrolled
-            ? "bg-background border-b border-border/50 py-1.5 sm:py-2 shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
+          useDarkNav
+            ? "bg-background/95 backdrop-blur-md border-b border-border/50 py-1.5 sm:py-2 shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
             : "bg-transparent border-b border-white/10 py-2 sm:py-3"
         }`}
       >
@@ -55,10 +58,11 @@ export default function Navbar() {
                 priority
                 sizes="(max-width: 768px) 270px, 325px"
                 className={`object-contain transition-opacity duration-500 ${
-                  isScrolled && !isOpen ? "opacity-0" : isOpen ? "opacity-0" : "opacity-100"
+                  useDarkNav && !isOpen ? "opacity-0" : isOpen ? "opacity-0" : "opacity-100"
                 }`}
               />
-              {/* Dark-gold (scrolled or menu open) */}
+
+              {/* Dark-gold (scrolled, menu open, or light page) */}
               <Image
                 src="/images/logo-horizontal-dark-gold.png"
                 alt={BRAND_NAME}
@@ -66,7 +70,7 @@ export default function Navbar() {
                 priority
                 sizes="(max-width: 768px) 270px, 325px"
                 className={`object-contain transition-opacity duration-500 ${
-                  isScrolled || isOpen ? "opacity-100" : "opacity-0"
+                  useDarkNav || isOpen ? "opacity-100" : "opacity-0"
                 }`}
               />
             </div>
@@ -81,7 +85,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`relative group font-sans text-[11px] uppercase tracking-[0.22em] xl:tracking-[0.25em] whitespace-nowrap transition-colors duration-300 ${
-                    isScrolled
+                    useDarkNav
                       ? isActive ? "text-gold-accent" : "text-text-primary hover:text-gold-accent"
                       : isActive ? "text-white" : "text-white/80 hover:text-white"
                   }`}
@@ -89,7 +93,7 @@ export default function Navbar() {
                   {link.label}
                   <span
                     className={`absolute -bottom-1.5 left-0 w-full h-[1.5px] transform origin-left transition-transform duration-300 ease-out ${
-                      isScrolled ? "bg-gold-accent" : "bg-white/80"
+                      useDarkNav ? "bg-gold-accent" : "bg-white/80"
                     } ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
                   />
                 </Link>
@@ -103,7 +107,7 @@ export default function Navbar() {
             className={`lg:hidden relative z-[60] p-2.5 -mr-2 touch-manipulation transition-colors duration-300 ${
               isOpen
                 ? "text-background"
-                : isScrolled
+                : useDarkNav
                   ? "text-text-primary hover:text-gold-accent"
                   : "text-white hover:text-white/70"
             }`}

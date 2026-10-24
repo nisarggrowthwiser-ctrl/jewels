@@ -7,6 +7,7 @@ export const CATEGORIES: Category[] = [
     subtitle: "Eternal Heritage",
     description: "Rare, hand-selected natural diamonds crafted into high-end statements of luxury. Earth-mined stones chosen for peerless fire, clarity, and exceptional cut grading.",
     image: "/images/gd-natural-diamond.jpg",
+    imagePosition: "object-[center_38%]",
     products: [
       {
         id: "nd-1",
@@ -44,6 +45,7 @@ export const CATEGORIES: Category[] = [
     subtitle: "Conscious Innovation",
     description: "Ethical, premium lab-grown diamond creations displaying identical physical properties and matching scintillation. For the modern collector seeking conscious beauty.",
     image: "/images/gd-lab-grown.jpg",
+    imagePosition: "object-[center_65%]",
     products: [
       {
         id: "lgd-1",
@@ -81,6 +83,7 @@ export const CATEGORIES: Category[] = [
     subtitle: "Ancestral Majesty",
     description: "Traditional Indian craftsmanship detailing raw, uncut diamonds set in fine gold foil backings. Rich designs passed down through generations of royal ateliers.",
     image: "/images/gd-polki.jpg",
+    imagePosition: "object-[center_62%]",
     products: [
       {
         id: "p-1",
@@ -118,6 +121,7 @@ export const CATEGORIES: Category[] = [
     subtitle: "Imperial Enamel",
     description: "Exquisite pure gold foil setting matching dynamic gemstone encrustations and hand-drawn Meenakari enamelling on the reverse surfaces.",
     image: "/images/gd-kundan.jpg",
+    imagePosition: "object-[center_35%]",
     products: [
       {
         id: "k-1",
