@@ -52,6 +52,9 @@ export const metadata: Metadata = {
     description: "Premium fine jewellery house specializing in natural and lab-grown diamonds, gold, polki, kundan, bridal, and custom designs.",
     images: ["/images/home-hero.jpg"],
   },
+  verification: {
+    google: "o4H0Hf64KiEvCcG5k5cfr2vF2XONz4KdmDJIty2C3sM",
+  },
 };
 
 export const viewport = {
