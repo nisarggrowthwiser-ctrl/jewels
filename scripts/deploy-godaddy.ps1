@@ -139,9 +139,10 @@ Set-Content -Path (Join-Path $outDir "_next\.htaccess") -Value $nextHtaccess -En
 Write-Host "✅ _next/.htaccess written" -ForegroundColor Green
 
 Write-Host "=== Step 3: Remove Next.js internal txt files from deployment ===" -ForegroundColor Cyan
-Get-ChildItem -Path $outDir -Filter "*.txt" -File | Remove-Item -Force
+Get-ChildItem -Path $outDir -Filter "*.txt" -File | Where-Object { $_.Name -ne "robots.txt" } | Remove-Item -Force
 Get-ChildItem -Path $outDir -Filter "__next.*" -File | Remove-Item -Force
-Write-Host "✅ Cleaned up internal files" -ForegroundColor Green
+Copy-Item -Path "public\robots.txt" -Destination (Join-Path $outDir "robots.txt") -Force
+Write-Host "✅ Cleaned up internal files, preserved robots.txt" -ForegroundColor Green
 
 Write-Host "=== Step 4: Creating final deployment ZIP ===" -ForegroundColor Cyan
 $zipPath = Join-Path (Get-Location).Path "vernaura-jewels-godaddy.zip"
