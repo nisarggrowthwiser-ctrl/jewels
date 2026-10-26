@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -13,17 +13,14 @@ import { BRAND_COPY } from "@/lib/constants";
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const isReduced = mounted && shouldReduceMotion;
-
   // Parallax Scroll configuration
   const { scrollY } = useScroll();
-  const yParallax = useTransform(scrollY, [0, 800], [0, isReduced ? 0 : 120]);
+  const yParallax = useTransform(scrollY, [0, 800], [0, 120]);
 
   // Official Expertise tiles data — 2 Featured Pillars
   const expertiseTiles = [
@@ -73,12 +70,7 @@ export default function Home() {
         <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#071711]/40 to-transparent z-10" />
 
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 z-20 pt-24 sm:pt-36 md:pt-40 pb-8 sm:pb-16 md:pb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-            className="max-w-3xl"
-          >
+          <div className="max-w-3xl hero-fade-in">
             {/* Gold ornamental line */}
             <div className="flex items-center gap-3 mb-3 sm:mb-5">
               <div className="w-5 h-[1px] bg-gold-accent/60" />
@@ -120,7 +112,7 @@ export default function Home() {
                 Create Your Custom Jewellery →
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
 
       </section>

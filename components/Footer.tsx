@@ -141,7 +141,7 @@ export default function Footer() {
               <motion.form
                 key="signup-form"
                 onSubmit={handleSubscribe}
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 className="relative flex items-center border-b border-white/15 focus-within:border-white/40 transition-colors duration-300 py-1"
@@ -171,7 +171,7 @@ export default function Footer() {
             ) : (
               <motion.div
                 key="signup-success"
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 className="flex items-center gap-2 text-white/60 text-xs font-sans py-1"

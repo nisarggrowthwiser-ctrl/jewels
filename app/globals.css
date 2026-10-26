@@ -195,3 +195,19 @@ body {
 .transition-duration-400 {
   transition-duration: 400ms;
 }
+
+/* ─── HERO FADE-IN (CSS-only, works without JS) ─── */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-in {
+  animation: heroFadeIn 0.9s ease-out 0.2s both;
+}

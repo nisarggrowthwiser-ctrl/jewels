@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Check, Sparkles, Phone, User, MessageSquare, Gem } from "lucide-react";
+import { X, Check, Phone, User, MessageSquare, Gem } from "lucide-react";
 import { BRAND_NAME } from "@/lib/constants";
 
 export default function InquiryPopup() {
@@ -48,7 +48,7 @@ export default function InquiryPopup() {
     sessionStorage.setItem("vernaura_inquiry_popup_dismissed", "true");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.phone.trim()) {
       setError("Please provide your name and phone number.");
@@ -57,14 +57,42 @@ export default function InquiryPopup() {
     setError("");
     setStatus("submitting");
 
-    // Simulate API lead dispatch
-    setTimeout(() => {
-      setStatus("success");
-      sessionStorage.setItem("vernaura_inquiry_popup_dismissed", "true");
-      setTimeout(() => {
-        setIsOpen(false);
-      }, 3000);
-    }, 1200);
+    try {
+      const body = new FormData();
+      body.append("name", formData.name.trim());
+      body.append("phone", formData.phone.trim());
+      body.append("category", formData.category);
+      body.append("message", formData.message.trim() || "(no message)");
+      // Subject line visible in Formspree inbox
+      body.append(
+        "_subject",
+        `Popup Inquiry — ${formData.category} — ${formData.name.trim()}`
+      );
+
+      const res = await fetch("https://formspree.io/f/xdeekkva", {
+        method: "POST",
+        body,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        sessionStorage.setItem("vernaura_inquiry_popup_dismissed", "true");
+        setTimeout(() => {
+          setIsOpen(false);
+        }, 3000);
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setError(
+          data?.errors?.[0]?.message ||
+            "Something went wrong. Please try again or contact us directly."
+        );
+        setStatus("idle");
+      }
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+      setStatus("idle");
+    }
   };
 
   return (
@@ -224,7 +252,7 @@ export default function InquiryPopup() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="w-full mt-2 py-3 px-4 bg-gold-accent hover:bg-gold-accent/90 text-[#071711] font-sans text-[11px] uppercase tracking-[0.22em] font-semibold rounded-lg transition-all duration-300 shadow-[0_4px_20px_rgba(194,162,97,0.25)] flex items-center justify-center gap-2"
+                    className="w-full mt-2 py-3 px-4 bg-gold-accent hover:bg-gold-accent/90 text-[#071711] font-sans text-[11px] uppercase tracking-[0.22em] font-semibold rounded-lg transition-all duration-300 shadow-[0_4px_20px_rgba(194,162,97,0.25)] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {status === "submitting" ? (
                       <span className="inline-block w-4 h-4 border-2 border-[#071711] border-t-transparent rounded-full animate-spin" />

@@ -22,14 +22,17 @@ export default function AnimatedSection({
     setMounted(true);
   }, []);
 
-  const isReduced = mounted && shouldReduceMotion;
+  // During static generation and before client hydration, render visible content
+  if (!mounted) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
-      initial={isReduced ? { opacity: 0 } : { opacity: 0, y: 15 }}
+      initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+      viewport={{ once: true, margin: "0px" }}
+      transition={{ duration: 0.5, delay, ease: "easeOut" }}
       className={className}
     >
       {children}
