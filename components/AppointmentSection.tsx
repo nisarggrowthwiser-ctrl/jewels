@@ -123,6 +123,8 @@ export default function AppointmentSection({ initialInterest = "Natural Diamonds
               <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
                 {/* Hidden subject for Formspree inbox */}
                 <input type="hidden" name="_subject" value={`Appointment Request — ${form.interest} — ${form.name.trim() || 'New Inquiry'}`} />
+                {/* CC to business email */}
+                <input type="hidden" name="_cc" value="info@vernaurajewels.com" />
 
                 {/* Row 1: Full Name & Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">

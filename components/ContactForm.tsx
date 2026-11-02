@@ -89,6 +89,9 @@ export default function ContactForm() {
               </p>
             </div>
 
+            {/* CC to business email */}
+            <input type="hidden" name="_cc" value="info@vernaurajewels.com" />
+
             {/* Name Input */}
             <div className="relative z-0 w-full group">
               <input

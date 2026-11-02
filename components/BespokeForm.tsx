@@ -96,6 +96,8 @@ export default function BespokeForm() {
 
             {/* Hidden subject for Formspree inbox */}
             <input type="hidden" name="_subject" value={`Bespoke Commission — ${form.occasion || 'General'} — ${form.name.trim() || 'New Inquiry'}`} />
+            {/* CC to business email */}
+            <input type="hidden" name="_cc" value="info@vernaurajewels.com" />
 
             {/* Name Input */}
             <div className="relative z-0 w-full group">

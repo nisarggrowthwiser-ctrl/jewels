@@ -68,6 +68,8 @@ export default function InquiryPopup() {
         "_subject",
         `Popup Inquiry — ${formData.category} — ${formData.name.trim()}`
       );
+      // CC to business email
+      body.append("_cc", "info@vernaurajewels.com");
 
       const res = await fetch("https://formspree.io/f/xdeekkva", {
         method: "POST",
