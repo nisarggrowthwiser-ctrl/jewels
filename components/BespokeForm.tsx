@@ -3,14 +3,13 @@
 import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Upload, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 
 interface FormState {
   name: string;
   contact: string;
   occasion: string;
   vision: string;
-  file: File | null;
 }
 
 export default function BespokeForm() {
@@ -20,7 +19,6 @@ export default function BespokeForm() {
     contact: "",
     occasion: "",
     vision: "",
-    file: null,
   });
 
   const [errors, setErrors] = useState<Partial<FormState>>({});
@@ -32,12 +30,6 @@ export default function BespokeForm() {
     setForm((prev) => ({ ...prev, [name]: value }));
     if (errors[name as keyof FormState]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setForm((prev) => ({ ...prev, file: e.target.files![0] }));
     }
   };
 
@@ -57,20 +49,18 @@ export default function BespokeForm() {
       return;
     }
 
-    // Build a FormData payload so the file attachment is sent correctly
     const data = new FormData();
     data.append("name", form.name);
     data.append("contact", form.contact);
     if (form.occasion) data.append("occasion", form.occasion);
     data.append("vision", form.vision);
-    if (form.file) data.append("attachment", form.file);
 
     await handleFsSubmit(data);
   };
 
   const handleReset = () => {
     reset();
-    setForm({ name: "", contact: "", occasion: "", vision: "", file: null });
+    setForm({ name: "", contact: "", occasion: "", vision: "" });
     setErrors({});
   };
 
@@ -178,30 +168,6 @@ export default function BespokeForm() {
                 <span className="text-[10px] text-red-600 block mt-1 font-sans">{errors.vision}</span>
               )}
               <ValidationError prefix="Vision" field="vision" errors={fsState.errors} className="text-[10px] text-red-600 block mt-1 font-sans" />
-            </div>
-
-            {/* File Upload Reference Image */}
-            <div className="space-y-2">
-              <span className="eyebrow text-[9px] text-text-muted/80 block uppercase tracking-widest">
-                Reference Image Upload
-              </span>
-              <label className="flex items-center justify-between gap-3 border border-dashed border-stone-300 hover:border-gold-accent transition-colors duration-300 p-3 sm:p-4 cursor-pointer">
-                <div className="flex items-center gap-3 text-xs text-text-muted font-sans min-w-0">
-                  <Upload className="w-4 h-4 text-gold-accent shrink-0" />
-                  <span className="truncate">
-                    {form.file ? form.file.name : "Attach reference sketch or design concept"}
-                  </span>
-                </div>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileChange}
-                  className="hidden"
-                />
-                <span className="eyebrow text-[8px] border border-stone-300 px-2 sm:px-3 py-1.5 hover:bg-text-primary hover:text-background hover:border-text-primary transition-all duration-300 shrink-0">
-                  Choose
-                </span>
-              </label>
             </div>
 
             {/* Form-level errors from Formspree */}
