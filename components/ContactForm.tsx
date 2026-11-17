@@ -13,7 +13,7 @@ interface FormState {
 }
 
 export default function ContactForm() {
-  const [state, handleSubmit, reset] = useForm("xdeekkva");
+  const [state, handleSubmit, reset] = useForm("moeddjag");
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",

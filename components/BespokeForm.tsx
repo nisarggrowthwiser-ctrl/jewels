@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Upload, ArrowRight } from "lucide-react";
 
@@ -13,6 +14,7 @@ interface FormState {
 }
 
 export default function BespokeForm() {
+  const [fsState, handleFsSubmit, reset] = useForm("moeddjag");
   const [form, setForm] = useState<FormState>({
     name: "",
     contact: "",
@@ -22,7 +24,6 @@ export default function BespokeForm() {
   });
 
   const [errors, setErrors] = useState<Partial<FormState>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -48,7 +49,7 @@ export default function BespokeForm() {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -56,26 +57,27 @@ export default function BespokeForm() {
       return;
     }
 
-    setStatus("submitting");
-    
-    // Simulate API Submission
-    setTimeout(() => {
-      console.log("Bespoke inquiry submitted successfully:", form);
-      setStatus("success");
-      setForm({
-        name: "",
-        contact: "",
-        occasion: "",
-        vision: "",
-        file: null,
-      });
-    }, 1500);
+    // Build a FormData payload so the file attachment is sent correctly
+    const data = new FormData();
+    data.append("name", form.name);
+    data.append("contact", form.contact);
+    if (form.occasion) data.append("occasion", form.occasion);
+    data.append("vision", form.vision);
+    if (form.file) data.append("attachment", form.file);
+
+    await handleFsSubmit(data);
+  };
+
+  const handleReset = () => {
+    reset();
+    setForm({ name: "", contact: "", occasion: "", vision: "", file: null });
+    setErrors({});
   };
 
   return (
     <div className="max-w-2xl mx-auto bg-surface border border-border/40 p-5 sm:p-8 md:p-12">
       <AnimatePresence mode="wait">
-        {status !== "success" ? (
+        {!fsState.succeeded ? (
           <motion.form
             key="bespoke-form"
             onSubmit={handleSubmit}
@@ -132,6 +134,7 @@ export default function BespokeForm() {
               {errors.contact && (
                 <span className="text-[10px] text-red-600 block mt-1 font-sans">{errors.contact}</span>
               )}
+              <ValidationError prefix="Contact" field="contact" errors={fsState.errors} className="text-[10px] text-red-600 block mt-1 font-sans" />
             </div>
 
             {/* Occasion Selection */}
@@ -174,6 +177,7 @@ export default function BespokeForm() {
               {errors.vision && (
                 <span className="text-[10px] text-red-600 block mt-1 font-sans">{errors.vision}</span>
               )}
+              <ValidationError prefix="Vision" field="vision" errors={fsState.errors} className="text-[10px] text-red-600 block mt-1 font-sans" />
             </div>
 
             {/* File Upload Reference Image */}
@@ -200,14 +204,17 @@ export default function BespokeForm() {
               </label>
             </div>
 
+            {/* Form-level errors from Formspree */}
+            <ValidationError errors={fsState.errors} className="text-xs text-red-600 block font-sans" />
+
             {/* Submit Button */}
             <div className="pt-2">
               <button
                 type="submit"
-                disabled={status === "submitting"}
-                className="w-full flex items-center justify-center gap-3 py-4 bg-text-primary text-background eyebrow text-[11px] tracking-[0.25em] hover:bg-gold-accent hover:text-text-primary transition-all duration-400 ease-luxury focus:outline-none"
+                disabled={fsState.submitting}
+                className="w-full flex items-center justify-center gap-3 py-4 bg-text-primary text-background eyebrow text-[11px] tracking-[0.25em] hover:bg-gold-accent hover:text-text-primary transition-all duration-400 ease-luxury focus:outline-none disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {status === "submitting" ? (
+                {fsState.submitting ? (
                   <>
                     <div className="w-4 h-4 border border-background border-t-transparent rounded-full animate-spin" />
                     <span>Transmitting Inquiry...</span>
@@ -242,7 +249,7 @@ export default function BespokeForm() {
             </div>
             <div className="pt-4">
               <button
-                onClick={() => setStatus("idle")}
+                onClick={handleReset}
                 className="eyebrow text-[9px] text-gold-accent border border-gold-accent/20 px-6 py-2.5 hover:bg-gold-accent hover:text-text-primary hover:border-gold-accent transition-colors duration-300"
               >
                 Submit another inquiry
