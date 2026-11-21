@@ -7,7 +7,7 @@ import { Check, ArrowRight, AlertCircle } from "lucide-react";
 
 interface FormState {
   name: string;
-  email: string;
+  mobile: string;
   subject: string;
   message: string;
 }
@@ -16,7 +16,7 @@ export default function ContactForm() {
   const [state, handleSubmit, reset] = useForm("moeddjag");
   const [form, setForm] = useState<FormState>({
     name: "",
-    email: "",
+    mobile: "",
     subject: "",
     message: "",
   });
@@ -36,11 +36,7 @@ export default function ContactForm() {
   const validate = () => {
     const newErrors: Partial<FormState> = {};
     if (!form.name.trim()) newErrors.name = "Please enter your name.";
-    if (!form.email.trim()) {
-      newErrors.email = "Please enter your email.";
-    } else if (!/\S+@\S+\.\S+/.test(form.email)) {
-      newErrors.email = "Please enter a valid email address.";
-    }
+    if (!form.mobile.trim()) newErrors.mobile = "Please enter your mobile number.";
     if (!form.message.trim()) newErrors.message = "Please enter your message.";
     return newErrors;
   };
@@ -60,7 +56,7 @@ export default function ContactForm() {
     reset();
     setForm({
       name: "",
-      email: "",
+      mobile: "",
       subject: "",
       message: "",
     });
@@ -109,12 +105,12 @@ export default function ContactForm() {
               )}
             </div>
 
-            {/* Email Input */}
+            {/* Mobile Number Input */}
             <div className="relative z-0 w-full group">
               <input
-                type="email"
-                name="email"
-                value={form.email}
+                type="tel"
+                name="mobile"
+                value={form.mobile}
                 onChange={handleInputChange}
                 className="block py-2.5 px-0 w-full text-sm text-text-primary bg-transparent border-0 border-b border-stone-300 focus:outline-none focus:ring-0 focus:border-gold-accent transition-colors duration-300 peer font-sans"
                 placeholder=" "
@@ -122,12 +118,11 @@ export default function ContactForm() {
               <label
                 className="peer-focus:font-medium absolute text-xs text-text-muted/70 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gold-accent peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 eyebrow uppercase tracking-widest"
               >
-                Email Address *
+                Mobile Number *
               </label>
-              {errors.email && (
-                <span className="text-[10px] text-red-600 block mt-1 font-sans">{errors.email}</span>
+              {errors.mobile && (
+                <span className="text-[10px] text-red-600 block mt-1 font-sans">{errors.mobile}</span>
               )}
-              <ValidationError prefix="Email" field="email" errors={state.errors} className="text-[10px] text-red-600 block mt-1 font-sans" />
             </div>
 
             {/* Subject Input */}

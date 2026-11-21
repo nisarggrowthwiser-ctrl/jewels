@@ -36,8 +36,7 @@ export default function AppointmentSection({ initialInterest = "Natural Diamonds
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [form, setForm] = useState({
     name: "",
-    phone: "",
-    email: "",
+    mobile: "",
     date: "",
     time: "Any time",
     interest: normalizeInterest(initialInterest),
@@ -52,15 +51,14 @@ export default function AppointmentSection({ initialInterest = "Natural Diamonds
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) return;
+    if (!form.name.trim() || !form.mobile.trim()) return;
 
     setStatus("submitting");
 
     try {
       const body = new FormData();
       body.append("name", form.name.trim());
-      body.append("phone", form.phone.trim());
-      body.append("email", form.email.trim());
+      body.append("mobile", form.mobile.trim());
       body.append("interest", form.interest);
       if (form.date) body.append("preferred_date", form.date);
       body.append("preferred_time", form.time);
@@ -89,8 +87,7 @@ export default function AppointmentSection({ initialInterest = "Natural Diamonds
   const handleReset = () => {
     setForm({
       name: "",
-      phone: "",
-      email: "",
+      mobile: "",
       date: "",
       time: "Any time",
       interest: normalizeInterest(initialInterest),
@@ -150,7 +147,7 @@ export default function AppointmentSection({ initialInterest = "Natural Diamonds
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
-              {/* Row 1: Full Name & Phone */}
+              {/* Row 1: Full Name & Mobile */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
                 <div>
                   <label className="block font-sans text-[10px] uppercase tracking-[0.22em] text-text-primary/80 font-medium mb-1">
@@ -167,34 +164,21 @@ export default function AppointmentSection({ initialInterest = "Natural Diamonds
 
                 <div>
                   <label className="block font-sans text-[10px] uppercase tracking-[0.22em] text-text-primary/80 font-medium mb-1">
-                    Phone *
+                    Mobile Number *
                   </label>
                   <input
                     type="tel"
                     required
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    value={form.mobile}
+                    onChange={(e) => setForm({ ...form, mobile: e.target.value })}
                     className="w-full bg-transparent border-0 border-b border-text-primary/30 focus:border-text-primary py-2 text-text-primary text-sm focus:outline-none transition-colors rounded-none"
                   />
                 </div>
               </div>
 
-              {/* Row 2: Email & Interest */}
+              {/* Row 2: Interest */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-                <div>
-                  <label className="block font-sans text-[10px] uppercase tracking-[0.22em] text-text-primary/80 font-medium mb-1">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-transparent border-0 border-b border-text-primary/30 focus:border-text-primary py-2 text-text-primary text-sm focus:outline-none transition-colors rounded-none"
-                  />
-                </div>
-
-                <div>
+                <div className="sm:col-span-2">
                   <label className="block font-sans text-[10px] uppercase tracking-[0.22em] text-text-primary/80 font-medium mb-1">
                     Interest
                   </label>

@@ -50,8 +50,7 @@ export default function SilverCategoriesGrid() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
   const [form, setForm] = useState({
     name: "",
-    phone: "",
-    email: "",
+    mobile: "",
     date: "",
     time: "Any time",
     interest: "Sterling Silver Jewellery",
@@ -73,15 +72,14 @@ export default function SilverCategoriesGrid() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) return;
+    if (!form.name.trim() || !form.mobile.trim()) return;
 
     setStatus("submitting");
 
     try {
       const body = new FormData();
       body.append("name", form.name.trim());
-      body.append("phone", form.phone.trim());
-      body.append("email", form.email.trim());
+      body.append("mobile", form.mobile.trim());
       body.append("interest", form.interest);
       if (form.date) body.append("preferred_date", form.date);
       body.append("preferred_time", form.time);
@@ -216,7 +214,7 @@ export default function SilverCategoriesGrid() {
                       Appointment Requested
                     </h3>
                     <p className="font-sans text-xs sm:text-sm text-text-muted max-w-md mx-auto leading-relaxed">
-                      Thank you, <span className="text-text-primary font-medium">{form.name}</span>. Our concierge team will connect with you at <span className="text-text-primary font-medium">{form.phone}</span> to confirm your private viewing for {selectedCategory.title}.
+                      Thank you, <span className="text-text-primary font-medium">{form.name}</span>. Our concierge team will connect with you at <span className="text-text-primary font-medium">{form.mobile}</span> to confirm your private viewing for {selectedCategory.title}.
                     </p>
                     <div className="pt-3">
                       <button
@@ -230,7 +228,7 @@ export default function SilverCategoriesGrid() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Row 1: Full Name & Phone */}
+                    {/* Row 1: Full Name & Mobile */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
                       <div>
                         <label className="block font-sans text-[10px] uppercase tracking-[0.22em] text-text-primary/80 font-medium mb-1">
@@ -247,33 +245,19 @@ export default function SilverCategoriesGrid() {
 
                       <div>
                         <label className="block font-sans text-[10px] uppercase tracking-[0.22em] text-text-primary/80 font-medium mb-1">
-                          Phone
+                          Mobile Number
                         </label>
                         <input
                           type="tel"
                           required
-                          value={form.phone}
-                          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                          value={form.mobile}
+                          onChange={(e) => setForm({ ...form, mobile: e.target.value })}
                           className="w-full bg-transparent border-0 border-b border-text-primary/30 focus:border-text-primary py-2 text-text-primary text-sm focus:outline-none transition-colors rounded-none"
                         />
                       </div>
                     </div>
 
-                    {/* Row 2: Email */}
-                    <div>
-                      <label className="block font-sans text-[10px] uppercase tracking-[0.22em] text-text-primary/80 font-medium mb-1">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full bg-transparent border-0 border-b border-text-primary/30 focus:border-text-primary py-2 text-text-primary text-sm focus:outline-none transition-colors rounded-none"
-                      />
-                    </div>
-
-                    {/* Row 3: Preferred Date & Preferred Time */}
+                    {/* Row 2: Preferred Date & Preferred Time */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
                       <div>
                         <label className="block font-sans text-[10px] uppercase tracking-[0.22em] text-text-primary/80 font-medium mb-1">

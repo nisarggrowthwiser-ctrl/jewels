@@ -36,7 +36,7 @@ export default function BespokeForm() {
   const validate = () => {
     const newErrors: Partial<FormState> = {};
     if (!form.name.trim()) newErrors.name = "Please enter your name.";
-    if (!form.contact.trim()) newErrors.contact = "Please enter your email or phone number.";
+    if (!form.contact.trim()) newErrors.contact = "Please enter your mobile number.";
     if (!form.vision.trim()) newErrors.vision = "Please share a brief description of your design vision.";
     return newErrors;
   };
@@ -109,7 +109,7 @@ export default function BespokeForm() {
             {/* Contact Input */}
             <div className="relative z-0 w-full group">
               <input
-                type="text"
+                type="tel"
                 name="contact"
                 value={form.contact}
                 onChange={handleInputChange}
@@ -119,7 +119,7 @@ export default function BespokeForm() {
               <label
                 className="peer-focus:font-medium absolute text-xs text-text-muted/70 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gold-accent peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 eyebrow uppercase tracking-widest"
               >
-                Email Address or Phone *
+                Mobile Number *
               </label>
               {errors.contact && (
                 <span className="text-[10px] text-red-600 block mt-1 font-sans">{errors.contact}</span>
