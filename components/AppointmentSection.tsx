@@ -133,7 +133,7 @@ export default function AppointmentSection({ initialInterest = "Natural Diamonds
                 Appointment Requested
               </h3>
               <p className="font-sans text-xs sm:text-sm text-text-muted max-w-md mx-auto leading-relaxed">
-                Thank you, <span className="text-text-primary font-medium">{form.name}</span>. Our bespoke concierge team will connect with you at <span className="text-text-primary font-medium">{form.phone}</span> to finalize your private viewing slot.
+                Thank you, <span className="text-text-primary font-medium">{form.name}</span>. Our bespoke concierge team will connect with you at <span className="text-text-primary font-medium">{form.mobile}</span> to finalize your private viewing slot.
               </p>
               <div className="pt-4">
                 <button
