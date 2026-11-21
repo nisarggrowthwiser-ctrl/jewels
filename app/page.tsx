@@ -1,0 +1,506 @@
+"use client";
+
+import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import AnimatedSection from "@/components/AnimatedSection";
+import { Gem, ArrowRight } from "lucide-react";
+import { BRAND_COPY } from "@/lib/constants";
+
+export default function Home() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Parallax Scroll configuration
+  const { scrollY } = useScroll();
+  const yParallax = useTransform(scrollY, [0, 800], [0, 120]);
+
+  // Official Expertise tiles data — 2 Featured Pillars
+  const expertiseTiles = [
+    {
+      title: "Custom Jewellery",
+      subtitle: "Bespoke Design & Tailored Luxury",
+      desc: "One-of-a-kind creations designed in direct collaboration with our master craftsmen.",
+      image: "/images/home-expertise-custom.jpg",
+      href: "/bespoke",
+    },
+    {
+      title: "Our Creations",
+      subtitle: "Curated Signatures",
+      desc: "Explore our signature diamond, gold, polki, kundan, and silver collections.",
+      image: "/images/home-expertise-creations.jpg",
+      href: "/collections",
+    },
+  ];
+
+  return (
+    <>
+      <Navbar />
+
+      {/* ─── 1. HERO — Full-bleed dark image, bottom-left official tagline & headline ─── */}
+      <section
+        ref={heroRef}
+        className="relative min-h-[75vh] sm:min-h-screen w-full overflow-hidden bg-[#071711] flex items-end"
+      >
+        <motion.div
+          style={{ y: yParallax }}
+          className="absolute inset-0 w-full h-[115%]"
+        >
+          <Image
+            src="/images/home-hero.jpg"
+            alt="Vernaura Jewels royal fine jewellery hero"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-55"
+          />
+        </motion.div>
+
+        {/* Richer gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/30 to-[#071711]/35 z-10" />
+        {/* Side vignettes */}
+        <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#071711]/40 to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#071711]/40 to-transparent z-10" />
+
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16 z-20 pt-24 sm:pt-36 md:pt-40 pb-8 sm:pb-16 md:pb-20">
+          <div className="max-w-3xl hero-fade-in">
+            {/* Gold ornamental line */}
+            <div className="flex items-center gap-3 mb-3 sm:mb-5">
+              <div className="w-5 h-[1px] bg-gold-accent/60" />
+              <span className="w-1.5 h-1.5 bg-gold-accent/70 rotate-45 block" />
+              <div className="w-5 h-[1px] bg-gold-accent/60" />
+            </div>
+            <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-white/60 mb-2 sm:mb-3">
+              Vernaura Jewels
+            </span>
+            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-light leading-[1.15] mb-3 sm:mb-6">
+              Timeless Elegance.<br />
+              Crafted Without{" "}
+              <br className="hidden sm:inline" />
+              Compromise.
+            </h1>
+
+            {/* Custom Luxury Tagline Pill Badge */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-gold-accent/15 border border-gold-accent/35 backdrop-blur-md mb-4 sm:mb-5">
+              <span className="w-1.5 h-1.5 bg-gold-accent rotate-45 shrink-0 block" />
+              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-gold-accent font-medium">
+                {BRAND_COPY.customTagline}
+              </span>
+            </div>
+
+            <p className="font-sans text-xs sm:text-sm md:text-base text-white/75 leading-relaxed tracking-wide max-w-xl mb-6 sm:mb-8 block">
+              {BRAND_COPY.aboutBrief}
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5 sm:gap-5">
+              <Link
+                href="/collections"
+                className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.22em] text-white bg-white/10 backdrop-blur-sm border border-white/40 px-7 py-3.5 sm:py-4 hover:bg-white hover:text-text-primary transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white text-center"
+              >
+                Discover Our Creations
+              </Link>
+              <Link
+                href="/bespoke"
+                className="inline-flex items-center justify-center gap-2 font-sans text-[11px] uppercase tracking-[0.22em] text-white/90 hover:text-white border border-transparent hover:border-white/30 px-6 py-3.5 sm:py-4 transition-all duration-300 text-center"
+              >
+                Create Your Custom Jewellery →
+              </Link>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      {/* ─── 1.5. LUXURY BESPOKE VALUE BANNER ─── */}
+      <section className="bg-[#05110d] border-y border-gold-accent/20 py-7 sm:py-9 px-5 sm:px-8 md:px-12 lg:px-16">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <div className="w-11 h-11 rounded-full border border-gold-accent/40 bg-gold-accent/10 flex items-center justify-center shrink-0">
+              <Gem className="w-5 h-5 text-gold-accent" />
+            </div>
+            <div className="space-y-1">
+              <span className="block font-sans text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-gold-accent/80 font-medium">
+                Direct Atelier Craftsmanship
+              </span>
+              <p className="font-serif text-lg sm:text-xl md:text-2xl text-white font-light tracking-wide">
+                &ldquo;Bespoke Luxury. Exceptional Value.&rdquo;
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2.5 font-sans text-[11px] uppercase tracking-[0.22em] text-gold-accent border border-gold-accent/40 px-6 py-3 hover:bg-gold-accent hover:text-[#071711] transition-all duration-300 shrink-0 font-medium"
+          >
+            Contact <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      </section>
+
+      <main className="bg-background text-text-primary">
+
+        {/* ─── 2. WELCOME / INTRO SECTION ─── */}
+        <section className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+
+            {/* Left Text */}
+            <div className="lg:col-span-7 space-y-7">
+              <AnimatedSection className="space-y-7">
+                <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
+                  Welcome to Vernaura Jewels
+                </span>
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-text-primary font-light leading-snug">
+                  {BRAND_COPY.welcomeTitle}
+                </h2>
+                <div className="w-8 h-[1px] bg-gold-accent" />
+                <div className="font-sans text-sm text-text-muted leading-relaxed space-y-4 tracking-wide">
+                  {BRAND_COPY.welcomeParagraphs.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+                <div className="pt-2">
+                  <Link
+                    href="/our-story"
+                    className="inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.25em] text-text-primary border-b border-text-primary pb-0.5 hover:text-gold-accent hover:border-gold-accent transition-colors duration-300"
+                  >
+                    Our Story & Heritage <span className="text-base leading-none">→</span>
+                  </Link>
+                </div>
+              </AnimatedSection>
+            </div>
+
+            {/* Right Image with Offset Decorative Frame */}
+            <div className="lg:col-span-5 relative">
+              <AnimatedSection delay={0.15} className="relative">
+                <div className="absolute -top-6 -right-6 w-3/4 h-3/4 bg-surface z-0 hidden sm:block" aria-hidden="true" />
+                <div className="relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden z-10">
+                  <Image
+                    src="/images/home-welcome.jpg"
+                    alt="Vernaura Jewels royal bridal bangles"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 45vw"
+                    className="object-cover"
+                  />
+                </div>
+              </AnimatedSection>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ─── 3. OUR EXPERTISE — 6 Tiles arranged in 3-Column Spaced Grid ─── */}
+        <section className="py-16 sm:py-24 md:py-32">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+            <AnimatedSection className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-14">
+              <div className="space-y-3">
+                <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
+                  Our Expertise
+                </span>
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-text-primary">
+                  {BRAND_COPY.expertiseSubtitle}
+                </h2>
+                <div className="w-8 h-[1px] bg-gold-accent" />
+              </div>
+              <Link
+                href="/collections"
+                className="font-sans text-[11px] uppercase tracking-[0.25em] text-text-primary border-b border-text-primary pb-0.5 hover:text-gold-accent hover:border-gold-accent transition-colors duration-300 shrink-0 self-start md:self-auto"
+              >
+                Discover Our Creations →
+              </Link>
+            </AnimatedSection>
+
+            {/* 2-Column Spaced Editorial Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              {expertiseTiles.map((tile, idx) => (
+                <AnimatedSection key={tile.title} delay={idx * 0.1}>
+                  <Link href={tile.href} className="group block relative overflow-hidden bg-[#071711] rounded-sm">
+                    <div className="relative aspect-[16/11] sm:aspect-[4/3] md:aspect-[16/11] overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/90 via-[#071711]/30 to-transparent z-10 opacity-85 group-hover:opacity-100 transition-opacity duration-500" />
+
+                      <Image
+                        src={tile.image}
+                        alt={tile.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
+                      />
+
+                      {/* Gold bottom reveal bar */}
+                      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-accent to-transparent z-30 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+                      <div className="absolute bottom-6 left-6 right-6 z-20 transform group-hover:-translate-y-2 transition-transform duration-500 ease-out">
+                        <span className="block font-sans text-[9px] uppercase tracking-[0.3em] text-white/60 mb-1">
+                          {tile.subtitle}
+                        </span>
+                        <h3 className="font-serif text-lg md:text-xl text-white font-light leading-snug mb-1.5">
+                          {tile.title}
+                        </h3>
+                        <p className="font-sans text-[11px] text-white/55 leading-relaxed font-light line-clamp-2">
+                          {tile.desc}
+                        </p>
+                        {/* Explore arrow — visible on mobile, reveals on hover on desktop */}
+                        <div className="flex items-center gap-1.5 mt-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="font-sans text-[9px] uppercase tracking-[0.25em] text-gold-accent">Explore</span>
+                          <span className="text-gold-accent text-xs">→</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 4. WHY VERNAURA — A Commitment to Excellence ─── */}
+        <section className="py-16 sm:py-24 md:py-32 bg-surface">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+            <AnimatedSection className="space-y-4 mb-10 sm:mb-14">
+              <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
+                Why Vernaura
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-text-primary">
+                {BRAND_COPY.whyTitle}
+              </h2>
+              <div className="w-8 h-[1px] bg-gold-accent" />
+            </AnimatedSection>
+
+            {/* 5-Column Row with Top Hairline Borders */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10">
+              {BRAND_COPY.features.map((feat, idx) => (
+                <AnimatedSection
+                  key={feat.title}
+                  delay={idx * 0.07}
+                  className="border-t border-border/80 pt-6 space-y-3 relative"
+                >
+                  {/* Large watermark number */}
+                  <span className="absolute -top-2 right-0 font-serif text-[64px] leading-none text-text-primary/[0.04] select-none pointer-events-none font-light">
+                    0{idx + 1}
+                  </span>
+                  <span className="font-serif text-xl text-gold-accent/50 font-light select-none block">
+                    0{idx + 1}
+                  </span>
+                  <h3 className="font-serif text-lg md:text-xl font-light text-text-primary leading-snug">
+                    {feat.title}
+                  </h3>
+                  <p className="font-sans text-xs md:text-sm text-text-muted leading-relaxed tracking-wide">
+                    {feat.desc}
+                  </p>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. OUR PHILOSOPHY ─── */}
+        <section className="py-16 sm:py-24 md:py-32 bg-background border-t border-border/40">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+            <AnimatedSection className="max-w-3xl space-y-4 mb-10 sm:mb-14">
+              <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
+                OUR PHILOSOPHY
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-text-primary">
+                Luxury Rooted in Authenticity
+              </h2>
+              <div className="w-8 h-[1px] bg-gold-accent" />
+              <div className="font-sans text-sm text-text-muted leading-relaxed space-y-3 tracking-wide pt-2">
+                <p>
+                  At Vernaura Jewels, we believe true luxury is defined not by excess, but by authenticity, craftsmanship, and enduring value.
+                </p>
+                <p>
+                  Every creation begins with carefully selected materials, passes through the hands of skilled artisans, and is finished with uncompromising attention to detail. We believe jewellery should not only captivate today but continue to inspire admiration decades from now.
+                </p>
+                <p className="font-medium text-text-primary pt-1">
+                  Our philosophy is built upon four enduring principles:
+                </p>
+              </div>
+            </AnimatedSection>
+
+            {/* 4-Column Grid with Images & Titles Below */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+              {[
+                {
+                  title: "Craftsmanship",
+                  desc: "Master artisanship remains at the heart of everything we create. Every detail matters, from design conception to final finishing.",
+                  image: "/images/craftsmanship-full.jpg"
+                },
+                {
+                  title: "Authenticity",
+                  desc: "Whether natural diamonds, lab-grown diamonds, precious metals, or gemstones, we are committed to transparency and integrity.",
+                  image: "/images/philosophy-authenticity.jpg"
+                },
+                {
+                  title: "Personalization",
+                  desc: "No two stories are alike. We believe jewellery should reflect the individuality of the person who wears it.",
+                  image: "/images/philosophy-personalization.jpeg"
+                },
+                {
+                  title: "Timelessness",
+                  desc: "Trends may evolve, but true elegance endures. We create jewellery designed to remain relevant across generations.",
+                  image: "/images/philosophy-timelessness.jpeg"
+                },
+              ].map((pillar, idx) => (
+                <AnimatedSection
+                  key={pillar.title}
+                  delay={idx * 0.08}
+                  className="space-y-4 group"
+                >
+                  {/* Image with gold top border reveal on hover */}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-surface">
+                    {/* Gold top border */}
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold-accent to-transparent z-20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                    <Image
+                      src={pillar.image}
+                      alt={pillar.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.05]"
+                    />
+                  </div>
+
+                  {/* Text */}
+                  <div className="space-y-2 px-0.5">
+                    <h3 className="font-serif text-lg text-text-primary group-hover:text-gold-accent font-light transition-colors duration-300">
+                      {pillar.title}
+                    </h3>
+                    <p className="font-sans text-xs text-text-muted leading-relaxed">
+                      {pillar.desc}
+                    </p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 5. VERNAURA JEWELS SILVER TEASER ─── */}
+        <section className="py-16 sm:py-24 md:py-32">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center">
+
+              {/* Image Left */}
+              <div className="lg:col-span-7 relative order-2 lg:order-1">
+                <AnimatedSection className="relative">
+                  <div className="absolute -top-6 -left-6 w-3/4 h-3/4 bg-surface z-0 hidden sm:block" aria-hidden="true" />
+                  <div className="relative aspect-[4/3] overflow-hidden z-10">
+                    <Image
+                      src="/images/home-silver-crafted.jpg"
+                      alt="Vernaura Jewels Silver - Silver Crafted with Distinction"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </AnimatedSection>
+              </div>
+
+              {/* Text Right */}
+              <div className="lg:col-span-5 space-y-7 order-1 lg:order-2">
+                <AnimatedSection delay={0.1} className="space-y-7">
+                  <span className="block font-sans text-[10px] uppercase tracking-[0.35em] text-text-muted">
+                    Vernaura Jewels Silver
+                  </span>
+                  <h2 className="font-serif text-3xl md:text-4xl font-light text-text-primary leading-snug">
+                    {BRAND_COPY.silverTitle}
+                  </h2>
+                  <div className="w-8 h-[1px] bg-gold-accent" />
+                  <p className="font-sans text-sm text-text-muted leading-relaxed tracking-wide">
+                    {BRAND_COPY.silverBody}
+                  </p>
+                  <p className="font-sans text-xs text-text-muted/80 tracking-wide uppercase">
+                    Explore silver jewellery, home décor, spiritual artifacts, gifting collections, and bespoke silver creations.
+                  </p>
+                  <Link
+                    href="/silver"
+                    className="inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.25em] text-text-primary border-b border-text-primary pb-0.5 hover:text-gold-accent hover:border-gold-accent transition-colors duration-300"
+                  >
+                    Explore Silver Collection <span className="text-base leading-none">→</span>
+                  </Link>
+                </AnimatedSection>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 6. BESPOKE JEWELLERY TEASER ─── */}
+        <section className="relative py-20 sm:py-32 md:py-44 flex items-end overflow-hidden bg-[#071711]">
+          <div className="absolute inset-0 w-full h-full">
+            <Image
+              src="/images/bespoke-sketch-to-ring.png"
+              alt="Bespoke jewellery - from sketch to sparkling ring"
+              fill
+              sizes="100vw"
+              className="object-cover opacity-40"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071711]/95 via-[#071711]/40 to-transparent z-10" />
+          {/* Ambient gold glow at bottom */}
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[200px] bg-gold-accent/[0.06] blur-[80px] pointer-events-none z-10" />
+
+          <AnimatedSection className="relative z-20 px-5 sm:px-8 md:px-12 lg:px-16 max-w-7xl w-full space-y-5">
+            <span className="block font-sans text-[10px] uppercase tracking-[0.4em] text-white/50">
+              Bespoke Jewellery
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-white font-light leading-[1.1] max-w-2xl">
+              {BRAND_COPY.bespokeTitle}
+            </h2>
+            <div className="space-y-2 max-w-lg">
+              {BRAND_COPY.bespokeBody.map((line, i) => (
+                <p key={i} className={`font-sans text-sm tracking-wide ${i === 3 ? "text-white/90 font-serif italic text-base pt-1" : "text-white/65 leading-relaxed"}`}>
+                  {line}
+                </p>
+              ))}
+            </div>
+            <div className="pt-4">
+              <Link
+                href="/bespoke"
+                className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.25em] text-white border border-white/30 px-6 sm:px-7 py-3 sm:py-3.5 hover:bg-white hover:text-text-primary transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white text-center"
+              >
+                Create Your Custom Jewellery
+              </Link>
+            </div>
+          </AnimatedSection>
+        </section>
+
+        {/* ─── 7. FINAL BRAND STATEMENT ─── */}
+        <section className="py-16 sm:py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-16 max-w-4xl mx-auto text-center">
+          <AnimatedSection className="space-y-8">
+            {/* Ornamental divider */}
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-12 h-[1px] bg-gold-accent/40" />
+              <div className="w-1.5 h-1.5 bg-gold-accent rotate-45" />
+              <div className="w-12 h-[1px] bg-gold-accent/40" />
+            </div>
+            <p className="font-serif italic text-2xl md:text-3xl text-text-primary font-light leading-relaxed">
+              &ldquo;{BRAND_COPY.finalStatement}&rdquo;
+            </p>
+            {/* Ornamental divider bottom */}
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-6 h-[1px] bg-gold-accent/30" />
+              <div className="w-1 h-1 bg-gold-accent/30 rotate-45" />
+              <div className="w-6 h-[1px] bg-gold-accent/30" />
+            </div>
+            <div>
+              <span className="block font-sans text-[9px] uppercase tracking-[0.4em] text-gold-accent mb-1">
+                VERNAURA JEWELS
+              </span>
+              <span className="font-sans text-[10px] text-text-muted tracking-widest uppercase">
+                Crafted for Generations.
+              </span>
+            </div>
+          </AnimatedSection>
+        </section>
+
+      </main>
+
+      <Footer />
+    </>
+  );
+}
