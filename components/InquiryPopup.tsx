@@ -69,7 +69,7 @@ export default function InquiryPopup() {
         `Popup Inquiry — ${formData.category} — ${formData.name.trim()}`
       );
 
-      const res = await fetch("https://formspree.io/f/xdeekkva", {
+      const res = await fetch("https://formspree.io/f/moeddjag", {
         method: "POST",
         body,
         headers: { Accept: "application/json" },

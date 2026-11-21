@@ -71,14 +71,40 @@ export default function SilverCategoriesGrid() {
     setSelectedCategory(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) return;
 
     setStatus("submitting");
-    setTimeout(() => {
-      setStatus("success");
-    }, 1200);
+
+    try {
+      const body = new FormData();
+      body.append("name", form.name.trim());
+      body.append("phone", form.phone.trim());
+      body.append("email", form.email.trim());
+      body.append("interest", form.interest);
+      if (form.date) body.append("preferred_date", form.date);
+      body.append("preferred_time", form.time);
+      if (form.message.trim()) body.append("message", form.message.trim());
+      body.append(
+        "_subject",
+        `Silver Appointment Request — ${form.interest} — ${form.name.trim()}`
+      );
+
+      const res = await fetch("https://formspree.io/f/moeddjag", {
+        method: "POST",
+        body,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("idle");
+      }
+    } catch {
+      setStatus("idle");
+    }
   };
 
   return (
