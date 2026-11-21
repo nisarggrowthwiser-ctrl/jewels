@@ -3,45 +3,53 @@
 import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, Upload, ArrowRight } from "lucide-react";
 
-interface FormState {
+interface FormFields {
   name: string;
   contact: string;
   occasion: string;
   vision: string;
+  file: File | null;
 }
 
 export default function BespokeForm() {
-  const [fsState, handleFsSubmit, reset] = useForm("moeddjag");
-  const [form, setForm] = useState<FormState>({
+  const [state, handleFormspreeSubmit, reset] = useForm("xdeekkva");
+  const [form, setForm] = useState<FormFields>({
     name: "",
     contact: "",
     occasion: "",
     vision: "",
+    file: null,
   });
 
-  const [errors, setErrors] = useState<Partial<FormState>>({});
+  const [errors, setErrors] = useState<Partial<FormFields>>({});
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormState]) {
+    if (errors[name as keyof FormFields]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setForm((prev) => ({ ...prev, file: e.target.files![0] }));
+    }
+  };
+
   const validate = () => {
-    const newErrors: Partial<FormState> = {};
+    const newErrors: Partial<FormFields> = {};
     if (!form.name.trim()) newErrors.name = "Please enter your name.";
     if (!form.contact.trim()) newErrors.contact = "Please enter your email or phone number.";
     if (!form.vision.trim()) newErrors.vision = "Please share a brief description of your design vision.";
     return newErrors;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -49,25 +57,25 @@ export default function BespokeForm() {
       return;
     }
 
-    const data = new FormData();
-    data.append("name", form.name);
-    data.append("contact", form.contact);
-    if (form.occasion) data.append("occasion", form.occasion);
-    data.append("vision", form.vision);
-
-    await handleFsSubmit(data);
+    await handleFormspreeSubmit(e);
   };
 
   const handleReset = () => {
     reset();
-    setForm({ name: "", contact: "", occasion: "", vision: "" });
+    setForm({
+      name: "",
+      contact: "",
+      occasion: "",
+      vision: "",
+      file: null,
+    });
     setErrors({});
   };
 
   return (
     <div className="max-w-2xl mx-auto bg-surface border border-border/40 p-5 sm:p-8 md:p-12">
       <AnimatePresence mode="wait">
-        {!fsState.succeeded ? (
+        {!state.succeeded ? (
           <motion.form
             key="bespoke-form"
             onSubmit={handleSubmit}
@@ -85,6 +93,11 @@ export default function BespokeForm() {
                 Fill in the details below. Our concierge will review your vision and connect you with a creative director.
               </p>
             </div>
+
+            {/* Hidden subject for Formspree inbox */}
+            <input type="hidden" name="_subject" value={`Bespoke Commission — ${form.occasion || 'General'} — ${form.name.trim() || 'New Inquiry'}`} />
+            {/* CC to business email */}
+            <input type="hidden" name="_cc" value="info@vernaurajewels.com" />
 
             {/* Name Input */}
             <div className="relative z-0 w-full group">
@@ -124,7 +137,7 @@ export default function BespokeForm() {
               {errors.contact && (
                 <span className="text-[10px] text-red-600 block mt-1 font-sans">{errors.contact}</span>
               )}
-              <ValidationError prefix="Contact" field="contact" errors={fsState.errors} className="text-[10px] text-red-600 block mt-1 font-sans" />
+              <ValidationError prefix="Contact" field="contact" errors={state.errors} className="text-[10px] text-red-600 block mt-1 font-sans" />
             </div>
 
             {/* Occasion Selection */}
@@ -167,20 +180,44 @@ export default function BespokeForm() {
               {errors.vision && (
                 <span className="text-[10px] text-red-600 block mt-1 font-sans">{errors.vision}</span>
               )}
-              <ValidationError prefix="Vision" field="vision" errors={fsState.errors} className="text-[10px] text-red-600 block mt-1 font-sans" />
+              <ValidationError prefix="Vision" field="vision" errors={state.errors} className="text-[10px] text-red-600 block mt-1 font-sans" />
             </div>
 
-            {/* Form-level errors from Formspree */}
-            <ValidationError errors={fsState.errors} className="text-xs text-red-600 block font-sans" />
+            {/* File Upload Reference Image */}
+            <div className="space-y-2">
+              <span className="eyebrow text-[9px] text-text-muted/80 block uppercase tracking-widest">
+                Reference Image Upload
+              </span>
+              <label className="flex items-center justify-between gap-3 border border-dashed border-stone-300 hover:border-gold-accent transition-colors duration-300 p-3 sm:p-4 cursor-pointer">
+                <div className="flex items-center gap-3 text-xs text-text-muted font-sans min-w-0">
+                  <Upload className="w-4 h-4 text-gold-accent shrink-0" />
+                  <span className="truncate">
+                    {form.file ? form.file.name : "Attach reference sketch or design concept"}
+                  </span>
+                </div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+                <span className="eyebrow text-[8px] border border-stone-300 px-2 sm:px-3 py-1.5 hover:bg-text-primary hover:text-background hover:border-text-primary transition-all duration-300 shrink-0">
+                  Choose
+                </span>
+              </label>
+            </div>
+
+            {/* Form-level errors */}
+            <ValidationError errors={state.errors} className="text-xs text-red-600 block font-sans" />
 
             {/* Submit Button */}
             <div className="pt-2">
               <button
                 type="submit"
-                disabled={fsState.submitting}
+                disabled={state.submitting}
                 className="w-full flex items-center justify-center gap-3 py-4 bg-text-primary text-background eyebrow text-[11px] tracking-[0.25em] hover:bg-gold-accent hover:text-text-primary transition-all duration-400 ease-luxury focus:outline-none disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {fsState.submitting ? (
+                {state.submitting ? (
                   <>
                     <div className="w-4 h-4 border border-background border-t-transparent rounded-full animate-spin" />
                     <span>Transmitting Inquiry...</span>

@@ -13,7 +13,7 @@ interface FormState {
 }
 
 export default function ContactForm() {
-  const [state, handleSubmit, reset] = useForm("moeddjag");
+  const [state, handleSubmit, reset] = useForm("xdeekkva");
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
@@ -88,6 +88,9 @@ export default function ContactForm() {
                 For custom inquiries, private viewings, or collection details, please send us a message.
               </p>
             </div>
+
+            {/* CC to business email */}
+            <input type="hidden" name="_cc" value="info@vernaurajewels.com" />
 
             {/* Name Input */}
             <div className="relative z-0 w-full group">
